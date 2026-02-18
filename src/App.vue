@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NavBar from './components/NavBar.vue';
 import HeroSection from './components/HeroSection.vue';
 import BrandStory from './components/BrandStory.vue';
 import GallerySection from './components/GallerySection.vue';
@@ -10,10 +11,11 @@ gsap.registerPlugin(ScrollTrigger);
 </script>
 
 <template>
+  <NavBar />
   <main class="w-full overflow-x-hidden bg-stone-50">
-    <HeroSection />
-    <BrandStory />
-    <GallerySection />
+    <HeroSection id="hero" />
+    <BrandStory id="story" />
+    <GallerySection id="collection" />
     <StylistChat />
   </main>
 </template>
