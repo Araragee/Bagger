@@ -14,7 +14,7 @@ export const PRODUCTS: Product[] = [
     price: "$450",
     description: "Hand-stitched from full-grain Italian leather, the Voyager Tote is designed for the modern professional. Spacious enough for a laptop yet elegant enough for evening events.",
     category: "Tote",
-    image: "https://images.unsplash.com/photo-1590874102752-ede57d482938?q=80&w=2787&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=2787"
   },
   {
     id: 2,
