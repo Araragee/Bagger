@@ -40,7 +40,7 @@ onMounted(() => {
   <section ref="sectionRef" class="flex min-h-screen w-full flex-col items-center justify-center bg-stone-50 px-6 py-20 md:flex-row md:px-20">
     <div class="w-full md:w-1/2">
       <img ref="imageRef"
-           src="https://images.unsplash.com/photo-1549488497-69539d0f2249?q=80&w=2670&auto=format&fit=crop"
+           src="https://images.unsplash.com/photo-1621600411688-4be93cd68504?q=80&w=2670&auto=format&fit=crop"
            alt="Craftsman working on leather"
            class="h-[60vh] w-full object-cover shadow-xl md:h-[70vh]" />
     </div>

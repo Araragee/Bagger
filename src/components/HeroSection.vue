@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <section class="relative h-screen w-full overflow-hidden">
     <!-- Background Image -->
-    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1485321590226-9d89953f6684?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center">
       <div class="absolute inset-0 bg-stone-900/40"></div>
     </div>
 
