@@ -4,10 +4,8 @@
 
 @layer base {
   body {
-    @apply bg-brand-black text-brand-light font-sans antialiased;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-wide;
+    background-color: theme('colors.brand.black');
+    color: theme('colors.brand.light');
   }
 }
 
@@ -16,11 +14,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-brand-black;
+  background-color: theme('colors.brand.black');
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-gray rounded-full;
+  background-color: theme('colors.brand.gray');
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-brand-muted;
+  background-color: theme('colors.brand.muted');
 }
