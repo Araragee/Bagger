@@ -4,9 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-stone-50 text-stone-900 font-sans;
+    @apply bg-brand-black text-brand-light font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif tracking-wide;
   }
+}
+
+/* Base scrollbar styling for a sleeker look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-brand-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-gray rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-muted;
 }

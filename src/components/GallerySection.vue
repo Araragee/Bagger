@@ -42,31 +42,49 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="relative h-screen overflow-hidden bg-stone-100">
+  <section ref="sectionRef" class="relative h-screen overflow-hidden bg-brand-dark">
     <div ref="trackRef" class="flex h-full w-[500vw]">
 
       <!-- Panel 1: Intro Card -->
-      <div class="flex h-full w-screen flex-col items-center justify-center bg-stone-900 p-10 text-stone-50">
-        <h2 class="mb-6 text-6xl font-serif md:text-8xl">The Collection</h2>
-        <p class="max-w-xl text-center text-xl font-light text-stone-300">
-          Discover our latest arrivals. Each piece is a testament to the enduring allure of fine leather.
-        </p>
-        <span class="mt-10 text-sm tracking-[0.2em] uppercase text-amber-500">Scroll to Explore &rarr;</span>
+      <div class="relative flex h-full w-screen flex-col items-center justify-center bg-brand-black p-10 text-brand-light overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549439602-43ebca2327af?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <h3 class="text-brand-gold text-xs tracking-[0.5em] uppercase mb-6">Exclusivity</h3>
+          <h2 class="mb-8 text-6xl font-serif md:text-8xl tracking-widest drop-shadow-lg">The Collection</h2>
+          <div class="w-16 h-[1px] bg-brand-gold mb-8"></div>
+          <p class="max-w-xl text-center text-lg md:text-xl font-light text-brand-muted leading-relaxed">
+            Discover our latest arrivals. Each piece is a testament to the enduring allure of fine craftsmanship and design.
+          </p>
+          <div class="mt-16 flex flex-col items-center animate-bounce">
+            <span class="text-xs tracking-[0.3em] uppercase text-brand-gold mb-2">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-brand-gold to-transparent"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Panels 2-5: Products -->
-      <div v-for="product in galleryItems" :key="product.id" class="relative flex h-full w-screen items-center justify-center bg-stone-50 p-6 md:p-10">
-        <div class="flex h-full w-full max-w-6xl flex-col items-center justify-center gap-6 md:gap-10 md:flex-row">
-          <div class="h-[40vh] md:h-[50vh] w-full md:w-1/2 overflow-hidden shadow-2xl">
-            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+      <div v-for="(product, index) in galleryItems" :key="product.id" class="relative flex h-full w-screen items-center justify-center bg-brand-dark p-6 md:p-20">
+        <!-- Subtle background numbering -->
+        <div class="absolute right-10 bottom-10 md:right-20 md:bottom-20 text-[10rem] md:text-[20rem] font-serif font-bold text-brand-black opacity-40 select-none pointer-events-none z-0">
+          0{{ index + 1 }}
+        </div>
+
+        <div class="relative z-10 flex h-full w-full max-w-7xl flex-col items-center justify-center gap-10 md:gap-20 md:flex-row">
+          <div class="h-[45vh] md:h-[65vh] w-full md:w-1/2 overflow-hidden shadow-2xl relative group">
+            <div class="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" />
           </div>
-          <div class="flex w-full flex-col items-center text-center md:items-start md:text-left justify-center md:w-1/2">
-            <span class="mb-2 text-xs md:text-sm font-bold uppercase tracking-widest text-amber-800">{{ product.category }}</span>
-            <h3 class="mb-2 md:mb-4 text-3xl font-serif text-stone-900 md:text-5xl">{{ product.name }}</h3>
-            <p class="mb-4 md:mb-6 text-sm md:text-lg text-stone-600 line-clamp-3 md:line-clamp-none">{{ product.description }}</p>
-            <p class="text-xl md:text-2xl font-medium text-stone-900">{{ product.price }}</p>
-            <button @click="openModal(product)" class="mt-4 md:mt-8 rounded-none border border-stone-900 px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm font-medium uppercase tracking-widest text-stone-900 transition-colors hover:bg-stone-900 hover:text-white">
-              View Details
+
+          <div class="flex w-full flex-col items-center text-center md:items-start md:text-left justify-center md:w-1/2 md:pr-10">
+            <span class="mb-4 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-brand-gold">{{ product.category }}</span>
+            <h3 class="mb-6 text-4xl font-serif text-brand-light md:text-6xl tracking-wide leading-tight">{{ product.name }}</h3>
+            <div class="w-8 h-[1px] bg-brand-gray mb-6 hidden md:block"></div>
+            <p class="mb-8 text-sm md:text-lg font-light text-brand-muted line-clamp-3 md:line-clamp-none leading-relaxed">{{ product.description }}</p>
+            <p class="text-2xl md:text-3xl font-serif text-brand-light tracking-wider mb-10">{{ product.price }}</p>
+
+            <button @click="openModal(product)" class="relative group overflow-hidden border border-brand-gray bg-transparent px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-brand-light transition-all hover:border-brand-gold">
+              <span class="relative z-10 transition-colors group-hover:text-brand-black">View Details</span>
+              <div class="absolute inset-0 h-full w-full translate-y-full bg-brand-gold transition-transform duration-300 ease-out group-hover:translate-y-0 z-0"></div>
             </button>
           </div>
         </div>
