@@ -38,7 +38,7 @@ onMounted(() => {
     <!-- Background Image -->
     <div
       ref="bgRef"
-      class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center scale-100 origin-center"
+      class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=3115&auto=format&fit=crop')] bg-cover bg-center scale-100 origin-center"
     >
       <div class="absolute inset-0 bg-gradient-to-b from-brand-black/60 via-brand-black/30 to-brand-black"></div>
     </div>
