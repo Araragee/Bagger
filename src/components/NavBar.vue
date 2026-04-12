@@ -1,184 +1,151 @@
 <template>
   <nav
-    :class="[
-      'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out px-6 py-4 md:px-12 md:py-6 flex items-center justify-between',
-      isScrolled ? 'bg-brand-black/95 backdrop-blur-md shadow-sm text-brand-light border-b border-brand-gray' : 'bg-transparent text-brand-light'
-    ]"
+    class="fixed top-0 left-0 w-full z-50 glass h-20 flex items-center justify-between px-6 md:px-10 transition-all duration-500"
+    :class="isScrolled ? 'shadow-ambient' : ''"
   >
-    <!-- Left: Navigation Links -->
-    <div class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase font-medium items-center">
-      <router-link to="/" class="hover:opacity-70 transition-opacity">Home</router-link>
+    <!-- Left: Logo -->
+    <router-link
+      to="/"
+      class="font-headline font-extrabold text-lg tracking-tighter text-on-surface uppercase shrink-0"
+      @click="closeMobileMenu"
+    >
+      The Curated Archive
+    </router-link>
 
-      <!-- Shop Dropdown -->
-      <div class="relative group" @mouseenter="isShopMenuOpen = true" @mouseleave="isShopMenuOpen = false">
-        <button class="flex items-center gap-1 hover:opacity-70 transition-opacity focus:outline-none">
-          Shop <ChevronDown class="w-4 h-4" />
-        </button>
-
-        <!-- Dropdown Menu -->
-        <div
-          v-show="isShopMenuOpen"
-          class="absolute top-full left-0 mt-2 w-48 bg-brand-dark text-brand-light shadow-xl border border-brand-gray py-2 rounded-sm origin-top-left transition-all duration-200"
-        >
-          <router-link to="/collections" class="block px-6 py-3 hover:bg-brand-gray transition-colors">All Products</router-link>
-          <router-link to="/collections?type=Bag" class="block px-6 py-3 hover:bg-brand-gray transition-colors">Bags</router-link>
-          <router-link to="/collections?type=Shoe" class="block px-6 py-3 hover:bg-brand-gray transition-colors">Shoes</router-link>
-        </div>
-      </div>
-
-      <router-link to="/about" class="hover:opacity-70 transition-opacity">About</router-link>
-    </div>
-
-    <!-- Mobile Menu Button (Left on mobile) -->
-    <button @click="isMobileMenuOpen = true" class="md:hidden p-2 hover:opacity-70 transition-opacity" aria-label="Menu">
-      <Menu class="w-6 h-6" />
-    </button>
-
-    <!-- Center: Logo -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" :class="{'opacity-0 pointer-events-none': isSearchOpen}">
-      <router-link to="/" class="font-serif text-2xl md:text-3xl font-bold tracking-tight hover:opacity-80 transition-opacity">
-        LUSSO
+    <!-- Center: Category Links (desktop) -->
+    <div class="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+      <router-link
+        v-for="cat in CATEGORIES"
+        :key="cat.slug"
+        :to="`/${cat.slug}s`"
+        class="font-headline text-sm font-medium tracking-tight text-on-surface-variant hover:text-on-surface transition-colors duration-200"
+        active-class="text-on-surface border-b-2 border-secondary font-bold"
+      >
+        {{ cat.pluralName }}
       </router-link>
     </div>
 
     <!-- Right: Icons -->
-    <div class="flex items-center gap-4 md:gap-6">
-      <!-- Search Bar -->
-      <div class="relative flex items-center">
-        <div
-          v-if="isSearchOpen"
-          class="absolute right-0 flex items-center bg-brand-dark text-brand-light rounded-full px-4 py-2 shadow-lg border border-brand-gray w-[160px] sm:w-[200px] md:w-[300px] transition-all duration-300"
-        >
-          <input
-            ref="searchInputRef"
-            v-model="searchQuery"
-            @keyup.enter="performSearch"
-            type="text"
-            placeholder="Search..."
-            class="bg-transparent border-none outline-none text-sm w-full placeholder-brand-muted"
-          />
-          <button @click="closeSearch" class="ml-2 hover:text-brand-gold transition-colors">
-            <X class="w-4 h-4" />
-          </button>
-        </div>
-
-        <button
-          v-if="!isSearchOpen"
-          @click="openSearch"
-          aria-label="Search"
-          class="hover:opacity-70 transition-opacity"
-        >
-          <Search class="w-5 h-5" />
-        </button>
-      </div>
-
+    <div class="flex items-center gap-1">
+      <!-- Cart -->
       <button
-        aria-label="Cart"
-        class="hover:opacity-70 transition-opacity relative"
+        aria-label="Open cart"
+        class="relative p-2 hover:bg-surface-container transition-colors duration-200"
         @click="toggleDrawer"
       >
-        <ShoppingBag class="w-5 h-5" />
-        <span v-if="cartCount > 0" class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center bg-brand-gold text-[10px] font-bold text-brand-black rounded-full">
-          {{ cartCount }}
-        </span>
+        <span class="material-symbols-outlined text-on-surface text-[22px]">shopping_bag</span>
+        <span
+          v-if="itemCount > 0"
+          class="absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary text-white font-label text-[9px] font-bold flex items-center justify-center leading-none"
+        >{{ itemCount }}</span>
+      </button>
+
+      <!-- Account -->
+      <button
+        aria-label="Account"
+        class="hidden md:flex p-2 hover:bg-surface-container transition-colors duration-200"
+      >
+        <span class="material-symbols-outlined text-on-surface text-[22px]">person</span>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button
+        aria-label="Open menu"
+        class="lg:hidden p-2 hover:bg-surface-container transition-colors duration-200"
+        @click="isMobileMenuOpen = true"
+      >
+        <span class="material-symbols-outlined text-on-surface text-[22px]">menu</span>
       </button>
     </div>
+  </nav>
 
-    <!-- Mobile Navigation Overlay -->
-    <Teleport to="body">
+  <!-- Mobile Menu Overlay -->
+  <Teleport to="body">
+    <Transition name="mobile-menu">
       <div
         v-if="isMobileMenuOpen"
-        class="fixed inset-0 z-[60] bg-brand-black text-brand-light flex flex-col md:hidden transition-all duration-300 ease-in-out"
+        class="fixed inset-0 z-[80] bg-surface-container-lowest flex flex-col lg:hidden"
       >
-        <div class="flex items-center justify-between p-6 border-b border-brand-gray">
-          <router-link to="/" @click="isMobileMenuOpen = false" class="font-serif text-2xl font-bold tracking-tight">
-            LUSSO
+        <!-- Mobile Header -->
+        <div class="flex items-center justify-between px-6 h-20 border-b border-surface-container-high">
+          <router-link
+            to="/"
+            class="font-headline font-extrabold text-lg tracking-tighter text-on-surface uppercase"
+            @click="closeMobileMenu"
+          >
+            The Curated Archive
           </router-link>
-          <button @click="isMobileMenuOpen = false" class="p-2 hover:opacity-70 transition-opacity" aria-label="Close Menu">
-            <X class="w-6 h-6" />
+          <button
+            aria-label="Close menu"
+            class="p-2 hover:bg-surface-container transition-colors"
+            @click="closeMobileMenu"
+          >
+            <span class="material-symbols-outlined text-on-surface text-[22px]">close</span>
           </button>
         </div>
 
-        <div class="flex-1 flex flex-col items-center justify-center gap-8 text-xl tracking-widest uppercase font-medium">
-          <router-link to="/" @click="isMobileMenuOpen = false" class="hover:text-brand-gold transition-colors py-2">Home</router-link>
-          <router-link to="/collections" @click="isMobileMenuOpen = false" class="hover:text-brand-gold transition-colors py-2">All Products</router-link>
-          <router-link to="/collections?type=Bag" @click="isMobileMenuOpen = false" class="hover:text-brand-gold transition-colors py-2">Bags</router-link>
-          <router-link to="/collections?type=Shoe" @click="isMobileMenuOpen = false" class="hover:text-brand-gold transition-colors py-2">Shoes</router-link>
-          <router-link to="/about" @click="isMobileMenuOpen = false" class="hover:text-brand-gold transition-colors py-2">About</router-link>
+        <!-- Mobile Links -->
+        <nav class="flex-1 flex flex-col justify-center px-10 gap-2">
+          <router-link
+            v-for="cat in CATEGORIES"
+            :key="cat.slug"
+            :to="`/${cat.slug}s`"
+            class="font-headline font-bold text-4xl tracking-tighter text-on-surface uppercase py-3 border-b border-surface-container-high hover:text-secondary transition-colors duration-200"
+            @click="closeMobileMenu"
+          >
+            {{ cat.pluralName }}
+          </router-link>
+        </nav>
+
+        <!-- Mobile Footer -->
+        <div class="px-10 pb-12">
+          <p class="font-label text-[10px] tracking-archive text-on-surface-variant uppercase">
+            Editorial Thrift · Est. 2024
+          </p>
         </div>
       </div>
-    </Teleport>
-  </nav>
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { Search, ShoppingBag, Menu, ChevronDown, X } from 'lucide-vue-next';
-import { useCart } from '../composables/useCart';
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCart } from '../composables/useCart'
+import { CATEGORIES } from '../data/categories'
 
-const isScrolled = ref(false);
-const isShopMenuOpen = ref(false);
-const isSearchOpen = ref(false);
-const isMobileMenuOpen = ref(false);
-const searchQuery = ref('');
-const searchInputRef = ref<HTMLInputElement | null>(null);
+const isScrolled = ref(false)
+const isMobileMenuOpen = ref(false)
 
-const { toggleDrawer, cartCount } = useCart();
-const route = useRoute();
-const router = useRouter();
+const { toggleDrawer, itemCount } = useCart()
+const route = useRoute()
 
-const handleScroll = () => {
-  if (route.path !== '/') {
-    isScrolled.value = true;
-  } else {
-    isScrolled.value = window.scrollY > 50;
-  }
-};
+function handleScroll() {
+  isScrolled.value = window.scrollY > 40
+}
 
-const openSearch = async () => {
-  isSearchOpen.value = true;
-  await nextTick();
-  searchInputRef.value?.focus();
-};
+function closeMobileMenu() {
+  isMobileMenuOpen.value = false
+}
 
-const closeSearch = () => {
-  isSearchOpen.value = false;
-  searchQuery.value = '';
-};
+onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))
+onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
-const performSearch = () => {
-  if (searchQuery.value.trim()) {
-    router.push({ path: '/collections', query: { search: searchQuery.value } });
-    // Optional: close search or keep it open
-    // closeSearch();
-  }
-};
+watch(() => route.path, closeMobileMenu)
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-
-watch(
-  () => route.path,
-  () => {
-    handleScroll();
-    isShopMenuOpen.value = false; // Close menu on navigation
-    isSearchOpen.value = false; // Close search on navigation
-    isMobileMenuOpen.value = false; // Close mobile menu on navigation
-  }
-);
-
-watch(isMobileMenuOpen, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-});
+watch(isMobileMenuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
 </script>
+
+<style scoped>
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+</style>

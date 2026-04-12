@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jackets | The Curated Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@300;400;600&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #faf9f6;
+            color: #1a1c1a;
+            font-family: 'Manrope', sans-serif;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-8 h-20 w-full max-w-full font-['Epilogue'] tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase">The Curated Archive</div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 px-2 py-1" href="#">Bags</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 px-2 py-1" href="#">Shirts</a>
+<a class="text-stone-900 dark:text-white font-bold border-b-2 border-red-600 transition-colors duration-300 px-2 py-1" href="#">Jackets</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 px-2 py-1" href="#">Sweaters</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 px-2 py-1" href="#">Shoes</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-stone-800 dark:text-stone-100 scale-95 duration-200 ease-in-out">shopping_bag</button>
+<button class="material-symbols-outlined text-stone-800 dark:text-stone-100 scale-95 duration-200 ease-in-out">person</button>
+</div>
+</nav>
+<!-- Hero Section: Modern & Sharp -->
+<header class="pt-40 pb-20 px-8 md:px-16 overflow-hidden">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-end gap-12">
+<div class="w-full md:w-1/2">
+<h1 class="text-[clamp(4rem,10vw,8rem)] font-headline font-extrabold leading-[0.85] tracking-tighter uppercase mb-8">
+                    Outer<br/>Layer
+                </h1>
+<p class="font-body text-lg text-primary max-w-md leading-relaxed">
+                    The intersection of technical precision and archival silhouette. Our jacket collection features curated pieces from the 1990s through contemporary avant-garde.
+                </p>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="aspect-[4/5] bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-fashion studio portrait of a model wearing a structured black leather jacket against a stark white background, sharp lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2k-9EUkr_xcY7kfWWUkqgc0eDLwgjSVh3Ip3cLqh39N8KrqN_WJ0baB6tLGV3zl5rm1gcNQEKka1bCC7EVUUB1Sdg650uxC3vUZPRK_21ANE64JxvDg75pc7OoFEjRhwHv_A4kcbwRxIMpZzbEh4143H50qsN5NFXP2f5d5fgE_3qsKArIwuiY6usH0hbM1Njm2tpa8D3pGZB9n4PAivV3PlE4nTSIpvxjo7MA_QOq6An6ieNsraFEAK9d7GPhrRheSQHhOv7bA8"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface p-6 font-label text-xs tracking-widest uppercase border-l-4 border-primary">
+                    Ref No. JK-0922 / ARCHIVE
+                </div>
+</div>
+</div>
+</header>
+<!-- Filter Bar (Modern Aesthetic) -->
+<section class="sticky top-20 z-40 bg-background py-6 px-8 md:px-16 flex flex-wrap items-center justify-between border-y border-outline-variant/10">
+<div class="flex gap-12 font-label text-[10px] tracking-[0.2em] uppercase text-on-surface/60">
+<button class="hover:text-primary transition-colors flex items-center gap-2">
+                Filter <span class="material-symbols-outlined text-sm">tune</span>
+</button>
+<button class="hover:text-primary transition-colors">Sort: Newest</button>
+</div>
+<div class="hidden lg:flex gap-8 font-label text-[10px] tracking-[0.2em] uppercase">
+<span class="text-primary font-bold">Show All (42)</span>
+<span class="text-on-surface/40 hover:text-on-surface transition-colors cursor-pointer">Leather</span>
+<span class="text-on-surface/40 hover:text-on-surface transition-colors cursor-pointer">Denim</span>
+<span class="text-on-surface/40 hover:text-on-surface transition-colors cursor-pointer">Tailored</span>
+<span class="text-on-surface/40 hover:text-on-surface transition-colors cursor-pointer">Technical</span>
+</div>
+</section>
+<!-- Product Grid: Asymmetric/Bento Style -->
+<main class="px-8 md:px-16 py-12 max-w-screen-2xl mx-auto">
+<div class="editorial-grid">
+<!-- Item 1: Large Featured -->
+<div class="col-span-12 md:col-span-8 mb-12">
+<div class="bg-surface-container-lowest group cursor-pointer relative">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Cinematic shot of a silver metallic puffer jacket hanging in a minimalist concrete room with dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6kVm0RoawZfS5hFlsYtWcl0qJr3nf6OtVsWKG_KrRfdB5CFAGspM4Fj-F2rv7xsrWoPLghOfPL1NVMMOheSq1isY-ZBHta7bV1gbPMdjHjtJWfsIDW0MsCIzNbP9hjDo7J8OIKo92ig-z7CfXwGWrgB00uJ4lfU9zyd8XB4LW5_1h14TaY13gS5RtC-tE3QadKHQ57vvOIOnHTp-c-lR_QyoVgQXWjZob5_FhKmczdmp_m_KoYQJZGg8f2t6UhMUBBFZ5V_ghDF8"/>
+</div>
+<div class="mt-6 flex justify-between items-start">
+<div>
+<span class="font-label text-[10px] tracking-widest text-secondary uppercase mb-2 block">New Arrival</span>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight">The 1996 Silver Ripstop Puffer</h3>
+<p class="font-body text-sm text-primary mt-1 italic">Rare archival specimen / Deadstock</p>
+</div>
+<div class="text-right">
+<p class="font-label text-lg font-bold">$1,240</p>
+<button class="mt-4 font-label text-[10px] tracking-widest uppercase py-2 px-6 border border-primary hover:bg-primary hover:text-white transition-all">Quick View</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Vertical Small -->
+<div class="col-span-12 md:col-span-4 mb-12">
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Close up of a premium charcoal grey wool overcoat with sharp lapels on a white background, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJawKxDT4tG6UdpqGw4GBmpgKZJQgPQTiyo2Oe8jdxzn5gEA_-tqW3S8FV11nMerLQa8lFoI_YeutdILbApEFDzTmo432Z63YcftV0XN9_3KLpDR06GlzcNlbZsrpw18ZQzsnWNSIDOcTzXwQHH3XmiFHmwPwEbe28bq6RqF2FKstBJKvWP7LGfmeullb5QR00NT34IW62zJFMxvoO2Wc_YlTfYhrss30asXu48VZbY-pmQyJaJWN9QjjyUb76wHAJmrlrROH1Uzw"/>
+</div>
+<div class="mt-6">
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">Minimalist Wool Overcoat</h3>
+<p class="font-label text-sm mt-2">$850</p>
+</div>
+</div>
+</div>
+<!-- Item 3: Standard Card -->
+<div class="col-span-12 md:col-span-4 mb-12">
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Deconstructed denim jacket with raw edges and metal hardware details, high contrast black and white photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzuZZ7iy6ais_VVWK-zDReeRkUQrxEJrs4O7DXqdNB1MA3dTvfDByEokeUcpcWsfYGI_7TuKNHU5yD6bAlP-LNw0EOSJZZaz4pUKkmWmbwio0PuXn7CYQT0WxTz5rz_T6Px60uc0MxLLgI9nwJHsSqn8o7TVwSbERzoMd9DFBRnyScuwifR8vS3ELch47nVJL1kFbcuYoYUxo2SxmUfuxSEmafQi5IPxfJhP7vBRfN7IZIHK2BqojOtevPAD961X8YcxyWEfgh_lw"/>
+</div>
+<div class="mt-6">
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">Deconstructed Denim</h3>
+<p class="font-label text-sm mt-2">$420</p>
+</div>
+</div>
+</div>
+<!-- Item 4: Middle Emphasis -->
+<div class="col-span-12 md:col-span-4 mb-12 flex flex-col justify-center px-12 border-x border-outline-variant/10">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-on-surface/40 mb-4 text-center">Collection Insight</span>
+<p class="font-headline text-2xl font-bold uppercase text-center leading-tight">"A jacket is more than a layer. It's a structure for the soul."</p>
+<div class="h-px w-12 bg-primary mx-auto mt-8"></div>
+</div>
+<!-- Item 5: Standard Card -->
+<div class="col-span-12 md:col-span-4 mb-12">
+<div class="bg-surface-container-lowest group cursor-pointer">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Vintage black biker jacket with heavy silver zips lying flat on a grey stone surface, top down view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2v7kktnQBD_DXe0Fcqs3anFOzRu-Ue0d6Q-kw2eVndIkOcD-11S0TlwFr76O17Idu4xbSLj-XoLyDOAeCKbMuEgLPrvZ1yuuBPjWqpa0Ud02MAP6EReWtevtf1QBSLTW94N-IbekMSix7NlIryU-gbZ3YBtArRC2bt3_cn8Y6n2-SGImF7J6-NXrUqQwD2FOV0cx_B24liiPjLaMoBC4Jv2rGwtLVyE-v6-JF-kpqIHcNwcoQKQVu3TpWqTY2HUNfwHJ7sI_Ms-8"/>
+</div>
+<div class="mt-6">
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">Archival Moto Jacket</h3>
+<p class="font-label text-sm mt-2">$2,100</p>
+</div>
+</div>
+</div>
+<!-- Item 6: Offset Large -->
+<div class="col-span-12 md:col-span-8 md:col-start-3 mt-12 mb-24">
+<div class="flex flex-col md:flex-row items-center gap-12 bg-surface-container-low p-8">
+<div class="w-full md:w-1/2 aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern technical shell jacket with waterproof zippers in a matte black finish, extreme close-up of texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMLFrGij-6IRGJrLyH3IaPP6MJTC6rmq6LIEu_YhuF2jokFuBsQ5DgJq9PJNXb9l1U-MVagZf5WTP66bYi_WHkIvfTPBukd20D2KxUjuP-EPMYxHsdqLaJyTDuyReFBROlftk2WTDHcr7maWrAYaDnxHuXr9iC_3DY4XhnmFTlhMuyg9TfhoDsnL39NaWLTnGLULisdGDlKh_8ac2dPwtXUoISvUu3LxHWHKfYRQ8RKdKRqm4i06NCwfaYmYZhGNNbyikq4bisX6c"/>
+</div>
+<div class="w-full md:w-1/2">
+<span class="font-label text-[10px] tracking-widest text-primary uppercase mb-4 block">Curator's Choice</span>
+<h2 class="font-headline text-4xl font-extrabold uppercase leading-none mb-6">Technical<br/>Shell V2</h2>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                            Gore-Tex™ Pro construction with magnetic closures. A masterpiece of functional brutalism designed for the modern nomad.
+                        </p>
+<button class="bg-primary text-white font-label text-xs tracking-widest uppercase py-4 px-10 hover:bg-stone-900 transition-colors">Shop Selection</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Cart Preview / Side Tray) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-[60] bg-stone-50 dark:bg-stone-950 border-l border-stone-200 dark:border-stone-800 flex flex-col h-full py-8 px-6 shadow-2xl translate-x-full lg:translate-x-0 hidden">
+<div class="flex justify-between items-center mb-12">
+<span class="font-['Space_Grotesk'] uppercase text-xs tracking-widest font-bold">Your Archive</span>
+<button class="material-symbols-outlined">close</button>
+</div>
+<div class="flex-1 space-y-8 overflow-y-auto">
+<div class="flex gap-4 items-center">
+<div class="w-16 h-16 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Thumbnail of leather jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC56zzOWg_HAiTnA2XPRizoK0ZPKGbFAoEO86l8WHmKWrhG_Jj5A-_ucc82ch4zWqBRPaMNBWEs7GAbREqNrSB19rgo9g7Q0f_6jY0dsVfjpqQ-Q_AT_5UQM0vwyUCwL_CFek4cnXZg9mIrXwEqX1dxvrvcAtre686LrmOEW0uY2GRLm7ZDMfrLxp47YphJQFSOBPimn5qokhUzRXyYyJ1qKOEs6mThxA2wXYxNyvot_1lMsZsqnYDfr-WFaS2exr7qKOvmQ1JmpoY"/>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] uppercase text-[10px] font-bold">Leather Archival</p>
+<p class="text-xs text-stone-500">$1,240</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-stone-200 dark:border-stone-800">
+<div class="flex justify-between mb-4">
+<span class="font-['Space_Grotesk'] uppercase text-xs tracking-widest">Total</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold">$1,240</span>
+</div>
+<button class="w-full bg-stone-900 text-white font-['Space_Grotesk'] uppercase text-[10px] tracking-[0.2em] py-4 hover:translate-x-[-4px] transition-transform duration-500">
+                Checkout Now
+            </button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full font-['Manrope'] text-sm leading-relaxed">
+<div class="md:col-span-1">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4 uppercase tracking-tighter">The Curated Archive</div>
+<p class="text-stone-500 dark:text-stone-400">Archival fashion and contemporary essentials. Expertly sourced. Meticulously curated.</p>
+</div>
+<div>
+<h4 class="font-label text-[10px] tracking-widest uppercase mb-6 text-on-surface">Experience</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Archives</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Shipping</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-[10px] tracking-widest uppercase mb-6 text-on-surface">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Terms of Service</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-[10px] tracking-widest uppercase mb-6 text-on-surface">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-stone-400 dark:border-stone-600 py-2 focus:outline-none focus:border-stone-900 dark:focus:border-white font-label text-[10px] tracking-widest" placeholder="YOUR EMAIL" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-sm">arrow_forward</button>
+</div>
+<p class="mt-8 text-[10px] text-stone-400">© 2024 The Curated Archive. Editorial Thrift.</p>
+</div>
+</footer>
+</body></html>

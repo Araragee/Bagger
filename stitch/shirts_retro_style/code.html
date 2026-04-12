@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,700;1,300;1,700&amp;family=Manrope:wght@400;500;700&amp;family=Space_Grotesk:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space_Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>.retro-grain {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAzqFhyrcsUagipgb1Iis1sFVW7napBt7W6MANhXx4v1IFO-A11i9dUwFXzWz5Sx6tOxonR8S8UlYteq2hqj7IBDk76Rnmt9BNNUT5GOw7pi2zZjACs_HmjVQMMfjq-wCr3tEJw7cxeq4kwX9YyA1nOmiugIr_i-x7AEl1r5bJMOkRYkE856cfpxQxnKDqwCHM3ZqZ8nb2b12qTtK7puxpimK9Fp3C5IFdIZwCfHxzrsc-EC3IgaaDWfVGyqONV378bIUgi9mibe1g);
+    mix-blend-mode: multiply;
+    opacity: 0.05
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }</style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<div class="fixed inset-0 pointer-events-none retro-grain z-[100]"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase font-headline">
+                The Curated Archive
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 font-['Epilogue'] tracking-tight transition-colors duration-300" href="#">Bags</a>
+<a class="text-stone-900 dark:text-white font-bold border-b-2 border-red-600 font-['Epilogue'] tracking-tight transition-colors duration-300" href="#">Shirts</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 font-['Epilogue'] tracking-tight transition-colors duration-300" href="#">Jackets</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 font-['Epilogue'] tracking-tight transition-colors duration-300" href="#">Sweaters</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 font-['Epilogue'] tracking-tight transition-colors duration-300" href="#">Shoes</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-stone-800 scale-95 duration-200 ease-in-out hover:bg-stone-100/50 p-2 rounded-full">shopping_bag</button>
+<button class="material-symbols-outlined text-stone-800 scale-95 duration-200 ease-in-out hover:bg-stone-100/50 p-2 rounded-full">person</button>
+</div>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+</header>
+<main class="pt-32 pb-20 px-8 max-w-7xl mx-auto">
+<!-- Category Header -->
+<div class="mb-20">
+<div class="flex flex-col md:flex-row md:items-baseline gap-4 mb-8">
+<h1 class="text-7xl md:text-9xl font-headline font-light italic tracking-tight text-primary">Shirts</h1>
+<span class="font-label text-secondary uppercase tracking-[0.2em] text-sm">Collection 004 / Archival Finds</span>
+</div>
+<p class="max-w-2xl text-lg text-tertiary font-body leading-relaxed italic">
+                A meticulously curated selection of vintage textiles. From 70s dagger collars to 80s oversized silks, each piece is a chapter of a forgotten story.
+            </p>
+</div>
+<!-- Filter Bar (Custom) -->
+<div class="flex flex-wrap items-center gap-6 mb-16 border-b border-outline-variant/20 pb-8">
+<span class="font-label text-xs uppercase tracking-widest text-outline">Filter By:</span>
+<button class="px-6 py-2 rounded-md bg-surface-container-high font-label text-xs uppercase tracking-widest text-on-surface hover:bg-tertiary-fixed transition-colors">Dagger Collar</button>
+<button class="px-6 py-2 rounded-md bg-surface-container-low font-label text-xs uppercase tracking-widest text-on-surface hover:bg-tertiary-fixed transition-colors">Silk Prints</button>
+<button class="px-6 py-2 rounded-md bg-surface-container-low font-label text-xs uppercase tracking-widest text-on-surface hover:bg-tertiary-fixed transition-colors">Western</button>
+<button class="px-6 py-2 rounded-md bg-surface-container-low font-label text-xs uppercase tracking-widest text-on-surface hover:bg-tertiary-fixed transition-colors">Oversized</button>
+</div>
+<!-- Product Grid (Asymmetric) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Item 1: Large Featured -->
+<div class="md:col-span-8 flex flex-col group">
+<div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vintage 70s patterned button-down shirt on a model, warm sunlight, retro film grain aesthetic, earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPJArV5W-pnBAmebWd0rE8cdWDVyxPDIOafKOdXrxnDkoT-QEEt62ZwqoVvJpnWvbfTTvnDF2EKJK7_pwRCaWdaj6YLSEpYotd5lcWotXICii4QcQZrEMQHAftoPp4vfUi_Bq6-c5liEJguS_gYq9EfaijX75t1EopVvBCJ1eGM943c5y8kVSXojH9InXdPApU3LygJrBKbcBLzp3pjGyx5RSj7VQb60SkZoIrxHpn_kUHK9jYqlq3-xv_WsDi6np8I8r3z3xBEaU"/>
+<div class="absolute top-6 left-6 bg-secondary text-white px-4 py-1 font-label text-[10px] tracking-[0.3em] uppercase">Archive Pick</div>
+</div>
+<div class="mt-6 flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-headline italic font-light">The geometric silk disco shirt</h3>
+<p class="font-label text-xs text-outline mt-1 uppercase tracking-widest">Circa 1974 / Pristine Condition</p>
+</div>
+<span class="text-xl font-headline text-secondary">$185.00</span>
+</div>
+</div>
+<!-- Item 2: Small Sidebar -->
+<div class="md:col-span-4 flex flex-col gap-12">
+<div class="group">
+<div class="relative aspect-square bg-surface-container overflow-hidden rounded-md">
+<img class="w-full h-full object-cover grayscale-0 group-hover:grayscale transition-all duration-500" data-alt="Close up of a vintage cream linen shirt texture with mother of pearl buttons, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARbzMJOH_mqqUjLNWXuSBDT35TrABSF9Wn1aBlp8W9SE1IlllDFXV1TBwN6PYNCEtOtyYYqehslohIAcH8dCrLbNU9RUq6xDL3Ck0gpTBbBNkkex9UjiaLdqmERAsCIXpN8fpe7VJYa_eEw2O7V1WJfvbl6ChWagcZTSXPv9gd6-nNAYBPwpTFTohnB4DOclPKV8OL4HYjvam2-KEjTV-ic0tBM3Kegf61MnHY4ZCZGsWS47SpQ1AnyJUVikzd6GKeHzYnpF4eucA"/>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-headline italic font-light">Raw Linen Minimalist Cut</h3>
+<span class="text-sm font-label text-secondary">$95.00</span>
+</div>
+</div>
+<div class="group">
+<div class="relative aspect-square bg-surface-container overflow-hidden rounded-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Bold orange and brown retro striped shirt hanging on a wooden rack, 1980s boutique style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuBFMScZCuFQmh3LZOqKFnvJoXitW1gtZe9BHV3uorGrqMOnwP21mvCe7CXQuz2Bq1wqbs3sb_h9CaiJmMEkWWAQ3edzboGJr2Mz2aiRJBrxofQjWZIVVIlDJjMT2Mvy9N6GpOl6gntbOPqisSUrE5zGp1uy0goUr0mWHyJgc4O8I_bxnZoseMD-HyopOthFy6w6L3o7yxelwFa05bWp3HpYyhqVZ_ZB55tGAEE4oxiqYjs7Z2ae4f5oA9Y7aUhTxsTXXmpNxrdLc"/>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-headline italic font-light">Sunset Ochre Stripes</h3>
+<span class="text-sm font-label text-secondary">$112.00</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Wide Full Row -->
+<div class="md:col-span-12 mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1 px-8">
+<span class="font-label text-xs uppercase tracking-widest text-outline mb-4 block">Designer Spotlight</span>
+<h2 class="text-5xl font-headline font-light italic mb-6">Archival Italian Chambray</h2>
+<p class="text-tertiary leading-relaxed mb-8">Discovered in a small atelier outside Florence, this deadstock chambray features unique triple-needle stitching and original bone buttons. A rare piece of tailoring history.</p>
+<button class="border border-outline px-10 py-4 font-label text-xs uppercase tracking-widest hover:bg-on-surface hover:text-surface transition-all">Acquire Piece</button>
+</div>
+<div class="order-1 md:order-2 aspect-[16/9] bg-surface-container-high rounded-md overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Deep blue denim shirt with white contrast stitching, high-end editorial photography on light grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKlCz91iCuWHiWrjktLtE43Uzfh7CWdvSoVh5KCx0MQCRH-kaP9aZ9xjtGnx41P-cLtn-oFTOYqRBLgGMrsqhF8eZqhwjyodFWzukSDwGOgNDprr2Q0mNvtG97RM05-DqwbFsN0PyM62uAScCcVlTYYzOux-vc5q3oKj-k9h-_UL3oZgJO6jxApDqXtk3ma6apCW006Ls8hQIlLZ7NgKz7n2xG__k1LgMYZN_5NIrolBSUM3guXzNahxPQ31F8aKqNE3PMkfJIUU"/>
+</div>
+</div>
+<!-- Item 4: Regular Grid -->
+<div class="md:col-span-4 group">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-md">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" data-alt="Pale yellow vintage shirt with delicate floral embroidery on the collar, soft film photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyAogfzMVRd4xQD2KcYs2N65SMwwHBxBRsnr6secUTy0mR6XzgZ4tg10GGsrrVr3fs1GdaRASxK-Udwzb2Eh7QjwB4HM4PCUJSpjmVXffmFeLhE250o_Mx-7jfW_634t1UrPbPUQXyl10-XmeTB3SJKJKDkD7S38T5SPbAd-WV4rZ00UrONILsifzviZD_LoD6QxczjBvK4CWTiOUfBXO1IsS3BezZQV--aAsT8KWIjDnPM7tSjm_raRzH3LpHLF5tgcY48BjWF-g"/>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-headline italic font-light">Embroidered Meadow Shirt</h3>
+<span class="text-sm font-label text-secondary">$135.00</span>
+</div>
+</div>
+<div class="md:col-span-4 group">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-md">
+<img class="w-full h-full object-cover" data-alt="Collection of folded white cotton shirts, textured fabric, warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIPWqUGNIJcrcy7HCZKfXByWEe35rvl3pk4Qkq-FANjXGXV2-pHxFX-BPrJwDd5Spu4sJeXrL3aOCx9ooqX3WQDjDOwbCuXo7wtPuH-OKGpkyYoGUhz3CgY0ISYXGNIzYy_WYSBMjUUw23RqSVK6nHxw9IGz9eep9rgBW_jH3FZSxd5Dm_Rn4q0sNDS6ZT2PM_HYMkh3wrRyKiAcyKvVls2NDp6ixn0X723F3XMLg-cMpvasID0fnKH82vox9SN3aYOusicSXNECw"/>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-headline italic font-light">Oxford Poplin / Set of 3</h3>
+<span class="text-sm font-label text-secondary">$240.00</span>
+</div>
+</div>
+<div class="md:col-span-4 group">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden rounded-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Classic tan corduroy shirt with vintage vibe, dark background, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-DmF04VFZN8IlnaohURCy73i3u5BwSEQHS2NPYPMKX3eU74VjQ0gzYkVsA7ubbHWuSGVZWhVkkc-8vdJJ5JAzLWVu0DYVTe9WGCMQN0QO10oz6nzd7Zb8882xmQtrxN_dTVwcpzvblNMkJh6hj5KyeCTiBJZrhKFFhjOGoPAclCj4e29mz9wN3p9vtBQDUNwxSUSK1V3Ccxc3EG3fCaavbwXiVsjxrpCJDP8s_F7XzC7QaPH2FAF8E-alqpKRmkw0rsfebf6tJkE"/>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-headline italic font-light">Russet Corduroy Over-Shirt</h3>
+<span class="text-sm font-label text-secondary">$158.00</span>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Your Archive Sidebar) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-[60] bg-stone-50 dark:bg-stone-950 border-l border-stone-200 dark:border-stone-800 shadow-2xl hidden lg:flex flex-col py-8 px-6 transition-transform duration-500 ease-out translate-x-full lg:translate-x-0">
+<div class="flex flex-col h-full">
+<div class="mb-10">
+<h2 class="font-['Space_Grotesk'] uppercase text-xs tracking-[0.3em] text-stone-400 mb-2">Your Archive</h2>
+<p class="font-headline italic text-2xl font-light text-stone-800">Curation List</p>
+</div>
+<div class="flex-grow space-y-8 overflow-y-auto">
+<!-- Archive Item -->
+<div class="flex gap-4 items-center group cursor-pointer hover:translate-x-[-4px] transition-transform duration-300">
+<div class="w-16 h-16 bg-surface-container-high rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Thumbnail of silk shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXRH2y_uyks1mxuTybmYTscrWKctomoOaXaiNe0mWW4qlkZA1NkkJO8gBraOm93V2nRzK0shIZ37QGubL_s2riF9PC37NmeQC2eX5pj3OpkVH4U12vjsbKR3-dnfFcCR4bN_mbuTNLocDpFGlLJpw-5j3HKWA-AC3TrmC0eSDzGIIyTpHaDjDMVPrmqgTlm5dqnPMTcDTJPaev6Ra7lRHKm87r1k3wLYD5HJ_SqhnlX41C76dtXQk2FihTfnvcNrKmd8tkyyhKNpY"/>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-stone-400">Archival Item</p>
+<p class="text-sm font-body font-bold text-stone-800">Silk Disco Shirt</p>
+<p class="text-xs text-secondary font-label">$185.00</p>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-stone-200">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label text-xs uppercase tracking-widest text-stone-500">Subtotal</span>
+<span class="font-headline text-lg">$185.00</span>
+</div>
+<button class="w-full bg-secondary text-white py-4 font-label text-[10px] uppercase tracking-[0.4em] hover:bg-stone-900 transition-colors">
+                    Checkout Now
+                </button>
+</div>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4 uppercase tracking-tighter">The Curated Archive</div>
+<p class="font-['Manrope'] text-sm leading-relaxed text-stone-500 dark:text-stone-400 italic">
+                    Editorial Thrift for the Modern Collector.
+                </p>
+</div>
+<div>
+<h4 class="font-label text-xs uppercase tracking-[0.2em] mb-6 text-stone-900 dark:text-white">Directory</h4>
+<ul class="space-y-4">
+<li><a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity opacity-80 hover:opacity-100" href="#">Archives</a></li>
+<li><a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity opacity-80 hover:opacity-100" href="#">Shipping</a></li>
+<li><a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity opacity-80 hover:opacity-100" href="#">Sustainability</a></li>
+<li><a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-xs uppercase tracking-[0.2em] mb-6 text-stone-900 dark:text-white">Connect</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-stone-400 hover:text-secondary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-secondary cursor-pointer transition-colors">alternate_email</span>
+</div>
+</div>
+<div>
+<h4 class="font-label text-xs uppercase tracking-[0.2em] mb-6 text-stone-900 dark:text-white">The Newsletter</h4>
+<div class="flex border-b border-stone-300 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body italic w-full" placeholder="Your Email" type="email"/>
+<button class="material-symbols-outlined text-stone-800">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-stone-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Manrope'] text-xs text-stone-400">© 2024 The Curated Archive. Editorial Thrift.</p>
+<div class="flex gap-8 text-[10px] font-label uppercase tracking-widest text-stone-400">
+<a class="hover:text-stone-800" href="#">Privacy</a>
+<a class="hover:text-stone-800" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

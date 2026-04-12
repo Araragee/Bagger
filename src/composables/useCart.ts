@@ -1,67 +1,93 @@
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
+import type { Product } from '../data/products'
+import { formatPrice } from '../data/products'
 
-// Type definition for Cart Item
 export interface CartItem {
-  id: number;
-  name: string;
-  price: string;
-  image: string;
-  quantity: number;
+  id: number
+  name: string
+  price: number
+  category: string
+  subcategory: string
+  image: string
+  quantity: number
 }
 
-// Global State
-const cartItems = ref<CartItem[]>([]);
-const isDrawerOpen = ref(false);
+// Module-level reactive state — shared across all composable calls
+const cartItems = ref<CartItem[]>([])
+const isDrawerOpen = ref(false)
 
 export function useCart() {
 
-  const addToCart = (product: any) => {
-    const existingItem = cartItems.value.find(item => item.id === product.id);
-    if (existingItem) {
-      existingItem.quantity++;
+  function addToCart(product: Product) {
+    const existing = cartItems.value.find(item => item.id === product.id)
+    if (existing) {
+      existing.quantity++
     } else {
       cartItems.value.push({
         id: product.id,
         name: product.name,
         price: product.price,
+        category: product.category,
+        subcategory: product.subcategory,
         image: product.image,
-        quantity: 1
-      });
+        quantity: 1,
+      })
     }
-    isDrawerOpen.value = true;
-  };
+    isDrawerOpen.value = true
+  }
 
-  const removeFromCart = (id: number) => {
-    const index = cartItems.value.findIndex(item => item.id === id);
-    if (index > -1) {
-      cartItems.value.splice(index, 1);
+  function removeFromCart(id: number) {
+    const index = cartItems.value.findIndex(item => item.id === id)
+    if (index > -1) cartItems.value.splice(index, 1)
+  }
+
+  function updateQuantity(id: number, quantity: number) {
+    if (quantity <= 0) {
+      removeFromCart(id)
+      return
     }
-  };
+    const item = cartItems.value.find(i => i.id === id)
+    if (item) item.quantity = quantity
+  }
 
-  const toggleDrawer = () => {
-    isDrawerOpen.value = !isDrawerOpen.value;
-  };
+  function clearCart() {
+    cartItems.value = []
+  }
 
-  const cartCount = computed(() => {
-    return cartItems.value.reduce((total, item) => total + item.quantity, 0);
-  });
+  function toggleDrawer() {
+    isDrawerOpen.value = !isDrawerOpen.value
+  }
 
-  const cartTotal = computed(() => {
-    // Helper to parse price string "$320" -> 320
-    const parsePrice = (priceStr: string) => Number(priceStr.replace(/[^0-9.-]+/g,""));
+  function openDrawer() {
+    isDrawerOpen.value = true
+  }
 
-    return cartItems.value.reduce((total, item) => {
-      return total + (parsePrice(item.price) * item.quantity);
-    }, 0);
-  });
+  function closeDrawer() {
+    isDrawerOpen.value = false
+  }
+
+  const itemCount = computed(() =>
+    cartItems.value.reduce((total, item) => total + item.quantity, 0)
+  )
+
+  const subtotal = computed(() =>
+    cartItems.value.reduce((total, item) => total + item.price * item.quantity, 0)
+  )
+
+  const subtotalFormatted = computed(() => formatPrice(subtotal.value))
 
   return {
     cartItems,
     isDrawerOpen,
     addToCart,
     removeFromCart,
+    updateQuantity,
+    clearCart,
     toggleDrawer,
-    cartCount,
-    cartTotal
-  };
+    openDrawer,
+    closeDrawer,
+    itemCount,
+    subtotal,
+    subtotalFormatted,
+  }
 }

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | The Curated Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #faf9f6;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+        }
+        @media (max-width: 1024px) {
+            .editorial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e9e8e5",
+                      "surface-container-low": "#f4f3f1",
+                      "background": "#faf9f6",
+                      "inverse-surface": "#2f312f",
+                      "tertiary-fixed": "#efe0cd",
+                      "on-secondary-container": "#fffbff",
+                      "surface-container-highest": "#e3e2e0",
+                      "tertiary-fixed-dim": "#d2c4b2",
+                      "on-surface-variant": "#5b403f",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#4f4538",
+                      "on-secondary-fixed": "#3a0b00",
+                      "outline-variant": "#e4bebc",
+                      "surface-variant": "#e3e2e0",
+                      "secondary-fixed-dim": "#ffb59e",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-dim": "#dbdad7",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#d43f00",
+                      "on-primary-container": "#f7feff",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-fixed": "#221a0f",
+                      "primary": "#5d5c5b",
+                      "on-primary-fixed-variant": "#474746",
+                      "surface-bright": "#faf9f6",
+                      "secondary": "#aa3000",
+                      "tertiary-container": "#7e7363",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#1a1c1a",
+                      "on-background": "#1a1c1a",
+                      "outline": "#8f6f6e",
+                      "inverse-primary": "#c8c6c5",
+                      "on-secondary-fixed-variant": "#852400",
+                      "tertiary": "#655a4c",
+                      "surface": "#faf9f6",
+                      "primary-container": "#757474",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#f2f1ee",
+                      "secondary-fixed": "#ffdbd0",
+                      "surface-container": "#efeeeb",
+                      "primary-fixed": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Epilogue"],
+                      "body": ["Manrope"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar (Suppressed Navigation for Focus, keeping Brand Identity) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-8 h-20 w-full max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 uppercase font-['Epilogue']">
+            The Curated Archive
+        </div>
+<div class="flex items-center gap-6">
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-['Space_Grotesk'] text-xs tracking-widest uppercase">Continue Shopping</span>
+</a>
+</div>
+</header>
+<main class="pt-20 min-h-screen">
+<div class="editorial-grid max-w-[1600px] mx-auto min-h-[calc(100vh-5rem)]">
+<!-- Left Side: Checkout Form (Modern/Minimalist) -->
+<section class="bg-surface p-8 md:p-16 border-r border-stone-200">
+<div class="max-w-xl mx-auto">
+<header class="mb-12">
+<h1 class="text-5xl font-['Epilogue'] font-extrabold tracking-tighter mb-4">CHECKOUT</h1>
+<p class="font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-primary">Finalize Your Curation</p>
+</header>
+<div class="space-y-12">
+<!-- Contact Section -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary text-on-primary w-6 h-6 flex items-center justify-center text-[10px] font-bold">01</span>
+<h2 class="font-['Space_Grotesk'] font-bold uppercase tracking-widest text-sm">Contact Information</h2>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="relative group">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Email Address</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="archivist@curated.com" type="email"/>
+</div>
+</div>
+</div>
+<!-- Shipping Section -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary text-on-primary w-6 h-6 flex items-center justify-center text-[10px] font-bold">02</span>
+<h2 class="font-['Space_Grotesk'] font-bold uppercase tracking-widest text-sm">Shipping Details</h2>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Full Name</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="Julian Vane" type="text"/>
+</div>
+<div class="col-span-2 relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Address</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="124 Archive Lane, Suite 4" type="text"/>
+</div>
+<div class="relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">City</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="London" type="text"/>
+</div>
+<div class="relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Postcode</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="EC1A 1BB" type="text"/>
+</div>
+</div>
+</div>
+<!-- Payment Section -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary text-on-primary w-6 h-6 flex items-center justify-center text-[10px] font-bold">03</span>
+<h2 class="font-['Space_Grotesk'] font-bold uppercase tracking-widest text-sm">Payment Method</h2>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest border border-primary/10 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="font-['Space_Grotesk'] text-xs tracking-widest font-medium uppercase">Credit / Debit Card</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-primary flex items-center justify-center p-1">
+<div class="w-full h-full bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-400">account_balance_wallet</span>
+<span class="font-['Space_Grotesk'] text-xs tracking-widest font-medium uppercase text-stone-500">Apple Pay / Google Pay</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-stone-200"></div>
+</div>
+</div>
+<div class="mt-8 space-y-6">
+<div class="relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Card Number</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">Expiry</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="MM/YY" type="text"/>
+</div>
+<div class="relative">
+<label class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-primary mb-1 block">CVV</label>
+<input class="w-full bg-surface-container-low border-b border-outline/40 py-3 focus:outline-none focus:border-primary transition-colors font-body text-sm" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-6 font-['Space_Grotesk'] font-bold uppercase tracking-[0.3em] text-sm hover:bg-stone-900 transition-all active:scale-95 duration-200">
+                            Complete Purchase
+                        </button>
+</div>
+</div>
+</section>
+<!-- Right Side: Order Summary (Asymmetric / Editorial) -->
+<aside class="bg-surface-container-low p-8 md:p-16 sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto">
+<div class="max-w-md">
+<h3 class="font-['Space_Grotesk'] font-bold uppercase tracking-widest text-sm mb-12 flex items-center justify-between">
+                        Archive Summary
+                        <span class="text-stone-400 font-normal">3 Items</span>
+</h3>
+<!-- Cart Items -->
+<div class="space-y-12">
+<!-- Item 1: Modern -->
+<div class="flex gap-6 items-start group">
+<div class="w-32 h-40 bg-white overflow-hidden flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Vintage Leather Bag" class="w-full h-full object-cover" data-alt="Close-up of a vintage weathered brown leather messenger bag with silver hardware against a clean white minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYKEL_HmicC6Lv9gYAqZaxiH0UmXEuqtu9ReGKxnvFoGL4lMVuqydW9jQgZMKn9a_XkVAq0GI1EJ_q2Gv37A5E8JtdZLOawWboR4uaHv3qj_jIm4vKNHZ4bcJSTxxQiOnMl6W3YZBcjo4KunKdxkPxK2VN7Wr9espXFsnZ2WdpUGb3qhlYzjSd7FdhFt-mmXh4JcemnRBUya-sFvP1lyx7NF8cx-ZrDU93uU7naHzXHbuhn3mB7L0V9ZQ6roIvzHRiNGoHVWF1FQY"/>
+</div>
+<div class="flex flex-col justify-between h-40">
+<div>
+<h4 class="font-['Epilogue'] font-bold text-lg leading-tight uppercase tracking-tight">1970s Leather Satchel</h4>
+<p class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-stone-400 mt-1">Ref: ARC-7721-B</p>
+<p class="font-['Manrope'] text-xs mt-3 text-stone-500 italic">One-of-a-kind discovery. Restoration grade: Excellent.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-4 text-xs font-['Space_Grotesk'] uppercase tracking-widest font-bold">
+<button class="text-stone-400 hover:text-primary">—</button>
+<span>01</span>
+<button class="text-stone-400 hover:text-primary">+</button>
+</div>
+<p class="font-['Space_Grotesk'] font-bold text-sm">£485.00</p>
+</div>
+</div>
+</div>
+<!-- Item 2: Retro Accent -->
+<div class="flex gap-6 items-start group">
+<div class="w-32 h-40 bg-white overflow-hidden flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Leather Biker Jacket" class="w-full h-full object-cover" data-alt="Shot of a black premium pebbled leather jacket draped over a vintage wooden chair in a sun-drenched loft studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgAwTJ6e9nduaB_pvGJhCAJA1MRl1LtrBkdsajHtWVcVjs-_vlJNL5pOJGZGTvhD0FAB3QDKprS_QTBUX0P986KU3qkW3N308fa--wdXgW8MgxfPxWCv3hrnlorrcbnL8e7frqNaxQK1kXIh6CKmI-17c7vhub-hQqDqdK8GBNVSeG5Wdkm7xB6K8YPwt64eEwY0Hvue0Kn3ThQEmt0cC7Z_wUxgOm0fn-VTUK66vjcm4rFBqWPAzWeq_czWnx2xYcGLF4b7FS5cU"/>
+</div>
+<div class="flex flex-col justify-between h-40">
+<div>
+<h4 class="font-['Epilogue'] font-bold text-lg leading-tight uppercase tracking-tight">Heavy Grain Moto Jacket</h4>
+<p class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-stone-400 mt-1">Ref: ARC-9902-J</p>
+<p class="font-['Manrope'] text-xs mt-3 text-stone-500 italic">Authentic patina. Sourced in Berlin, 1994.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-4 text-xs font-['Space_Grotesk'] uppercase tracking-widest font-bold">
+<button class="text-stone-400 hover:text-primary">—</button>
+<span>01</span>
+<button class="text-stone-400 hover:text-primary">+</button>
+</div>
+<p class="font-['Space_Grotesk'] font-bold text-sm">£1,200.00</p>
+</div>
+</div>
+</div>
+<!-- Item 3: Poppy Accent -->
+<div class="flex gap-6 items-start group">
+<div class="w-32 h-40 bg-white overflow-hidden flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Cotton Shirt" class="w-full h-full object-cover" data-alt="Minimalist flat lay of a crisp white heavyweight cotton shirt with architectural stitching and oversized buttons" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpSRHtkuimTKR8U7NOEW9JM5sXqenFI5VZABlulQB8t8Ugqg9_Q3d0xElMP-PglPmXhhO-cgJM1rW-djuqXKuYqdFF-6BxTqjWPbOumUgeBbdRfoFW_hRh2msyTpeZ2euhux4_MoEEUp_98347652pvymfHv7rSoiuB3cq9ydcgYLzhoYl8heeW3E2bW2sJ-QB3yRLx5yEv9r9e34Y_hMT39q-XffDsJbzWgJcRxisgie-3Ljupt4RJ6fG2G-N29EK_jR-xoDZuK4"/>
+</div>
+<div class="flex flex-col justify-between h-40">
+<div>
+<h4 class="font-['Epilogue'] font-bold text-lg leading-tight uppercase tracking-tight">Structured Cotton Poplin</h4>
+<p class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-stone-400 mt-1">Ref: ARC-1022-S</p>
+<p class="font-['Manrope'] text-xs mt-3 text-stone-500 italic">Deadstock archive piece. Never worn.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-4 text-xs font-['Space_Grotesk'] uppercase tracking-widest font-bold">
+<button class="text-stone-400 hover:text-primary">—</button>
+<span>01</span>
+<button class="text-stone-400 hover:text-primary">+</button>
+</div>
+<p class="font-['Space_Grotesk'] font-bold text-sm">£195.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Totals -->
+<div class="mt-20 pt-8 border-t border-stone-300">
+<div class="space-y-4 font-['Space_Grotesk'] uppercase tracking-widest text-xs font-medium">
+<div class="flex justify-between">
+<span class="text-stone-500">Subtotal</span>
+<span>£1,880.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-stone-500">Archival Shipping</span>
+<span>£25.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-stone-500">Taxes</span>
+<span>£376.00</span>
+</div>
+<div class="flex justify-between pt-6 mt-6 border-t border-stone-300 text-lg font-bold tracking-tight">
+<span class="text-stone-900">Total</span>
+<span class="text-secondary">£2,281.00</span>
+</div>
+</div>
+</div>
+<!-- Poppy Mode Sticker/Callout -->
+<div class="mt-12 bg-secondary text-on-secondary-container p-6 rounded-full flex items-center justify-between overflow-hidden relative">
+<div class="z-10">
+<p class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.3em] font-bold">Member Privilege</p>
+<p class="font-['Epilogue'] text-lg font-bold tracking-tighter">EARLY ARCHIVE ACCESS ACTIVE</p>
+</div>
+<span class="material-symbols-outlined text-4xl opacity-20 absolute -right-2 top-1/2 -translate-y-1/2 scale-150" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer (Suppressed for focused checkout, but maintaining brand bar) -->
+<footer class="w-full bg-stone-100 py-12 px-8 flex flex-col md:flex-row items-center justify-between border-t border-stone-200">
+<p class="font-['Manrope'] text-sm text-stone-500 uppercase tracking-widest">© 2024 The Curated Archive. Editorial Thrift.</p>
+<div class="flex gap-8 mt-6 md:mt-0 font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-stone-400">
+<a class="hover:text-stone-900 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-stone-900 transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="hover:text-stone-900 transition-colors" href="#">Provenance Guide</a>
+</div>
+</footer>
+<!-- Material Symbols Injection -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</body></html>

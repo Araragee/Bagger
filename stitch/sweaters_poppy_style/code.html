@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Space_Grotesk:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .poppy-blur {
+            backdrop-filter: blur(24px);
+        }
+        /* Custom Accent Colors for Poppy Mode */
+        .bg-electric-blue { background-color: #3b82f6; }
+        .bg-neon-pink { background-color: #ec4899; }
+        .text-neon-pink { color: #ec4899; }
+        .border-neon-pink { border-color: #ec4899; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-8 h-20 w-full max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase font-headline">The Curated Archive</div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300" href="#">Bags</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300" href="#">Shirts</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300" href="#">Jackets</a>
+<a class="text-stone-900 dark:text-white font-bold border-b-2 border-red-600" href="#">Sweaters</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300" href="#">Shoes</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-100/50 transition-colors duration-300">
+<span class="material-symbols-outlined text-stone-800">shopping_bag</span>
+</button>
+<button class="p-2 rounded-full hover:bg-stone-100/50 transition-colors duration-300">
+<span class="material-symbols-outlined text-stone-800">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section: Poppy Style Asymmetry -->
+<header class="relative mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7 z-10">
+<div class="inline-block bg-neon-pink text-white font-label px-4 py-1 rounded-full mb-6 rotate-[-2deg] shadow-lg">COZY SEASON</div>
+<h1 class="text-7xl md:text-9xl font-headline font-extrabold tracking-tighter leading-none mb-8 text-on-surface">
+                    Knit<br/><span class="text-electric-blue">Manifesto</span>
+</h1>
+<p class="text-xl max-w-md text-on-surface-variant font-body mb-10 leading-relaxed">
+                    A playful collection of chunky, textured, and vintage-souled sweaters. Expertly curated for the bold archivist.
+                </p>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-secondary px-10 py-5 rounded-full font-label text-sm tracking-widest uppercase hover:scale-105 transition-transform shadow-xl">
+                        Explore Knits
+                    </button>
+<button class="border-2 border-primary text-primary px-10 py-5 rounded-full font-label text-sm tracking-widest uppercase hover:bg-surface-container-low transition-colors">
+                        The Story
+                    </button>
+</div>
+</div>
+<div class="md:col-span-5 relative mt-12 md:mt-0">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-electric-blue rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<div class="absolute -bottom-10 -left-10 w-72 h-72 bg-neon-pink rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<div class="relative bg-surface-container-lowest p-4 rounded-[4rem] shadow-2xl rotate-[3deg] hover:rotate-0 transition-transform duration-500">
+<img alt="Sweater" class="w-full h-[500px] object-cover rounded-[3.5rem]" data-alt="Close-up of a vibrant multicolored vintage hand-knitted sweater with thick wool texture and playful abstract patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZPEaL0avcJH2ouCQd7I5T7RxQC35y_4c60QbcaI2zt0s3IHZZnRswZ4yJtDm5ZBOD-VsdhdfduENYkrvqYRrUsdc7vi5YvYNyqYydWM5tHweSjne46dUFPEBwKqdoenffRLtDTlkvQGOwRDpubO9i-v22KNMzO2DXf9mOINegv_rgsjt88UAgGZNBEcSsJ4jXWhZqnk9WsgZk7b3GnklZCJvxmpkRB9HFGKyEUah69dItu0EAnMGcwxwNF3XSYoXnyR3atcCwP30"/>
+</div>
+</div>
+</header>
+<!-- Filters: Poppy Soft Rounded -->
+<section class="flex flex-wrap gap-4 mb-16 items-center">
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mr-4">Filter By:</span>
+<button class="bg-surface-container-highest px-6 py-3 rounded-full font-label text-xs tracking-widest hover:bg-neon-pink hover:text-white transition-all">CHUNKY</button>
+<button class="bg-neon-pink text-white px-6 py-3 rounded-full font-label text-xs tracking-widest transition-all">OVERSIZED</button>
+<button class="bg-surface-container-highest px-6 py-3 rounded-full font-label text-xs tracking-widest hover:bg-neon-pink hover:text-white transition-all">MOHAIR</button>
+<button class="bg-surface-container-highest px-6 py-3 rounded-full font-label text-xs tracking-widest hover:bg-neon-pink hover:text-white transition-all">CABLE KNIT</button>
+<div class="ml-auto flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">grid_view</span>
+<span class="material-symbols-outlined text-stone-300">list</span>
+</div>
+</section>
+<!-- Product Grid: Asymmetric Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 group">
+<div class="bg-surface-container-low p-2 rounded-[3rem] overflow-hidden relative h-full">
+<img alt="Oversized Cream Sweater" class="w-full h-[600px] object-cover rounded-[2.5rem] group-hover:scale-110 transition-transform duration-700" data-alt="A luxurious oversized cream-colored cable knit sweater draped elegantly in a bright minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR4iD1aACdweWEs6lVjUMaFLxD9J9hixC-KpqegQVRVGYwiq0YDxc_YXdQOcuxvlcfoSY9Ny68SlYlI7opOyRW7sUkmnnFSBa0Jk_5Kjaqx6e8LrnDfQgC_fbOy1g4imxDhrK896TZCZx03CvNfjJDnf7f1gUEgSV1h3Lz460uOOpVCPW22nhuZKYH8cSJih6Jce7Avu6feYTOi-GK6pXSVKBNqDPYaMeMPBxmnpiwumADqXMl1d1YBPuCYDrLESi4ZmE4OffkecU"/>
+<div class="absolute bottom-6 left-6 right-6 p-8 bg-white/90 backdrop-blur-md rounded-[2rem] shadow-xl">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline text-3xl font-bold mb-2">The Cloud Pullover</h3>
+<p class="font-label text-xs uppercase tracking-widest text-neon-pink">Pure Virgin Wool • Rare Find</p>
+</div>
+<div class="text-right">
+<span class="font-label text-2xl font-bold">$245</span>
+<button class="block mt-4 bg-on-surface text-white p-4 rounded-full">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-2 rounded-full overflow-hidden relative aspect-[3/4]">
+<img alt="Blue Cardigan" class="w-full h-full object-cover rounded-full group-hover:rotate-6 transition-transform duration-500" data-alt="Electric blue vintage cardigan with chunky buttons and large patch pockets, soft texture visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIkoGhDjL2C752xQFuHuzkLYY4n3WUxVasXnADiA-LSDxhymc0oK-FaC8LOoMlhqJl_-tQ-gHX1MD7kpbBpGLHb-juBUjjpLR7zpZriGVLwYTQpUx4Gk8ZBJ_ViO4ZS6NSXHDDLO7YNuMUofcxql0qW9YR4S2mVtXc-oj83PlSY-BfO1ZAU4bv2YluqoxRu4fFsebZAULcMvmKO3Ijq3JSlUQwbfb_MYgcdvUo35-O8sIQnV7wO20_gRhxSw0inARNQeZ0jQN7U1o"/>
+<div class="absolute inset-0 bg-electric-blue/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white text-on-surface px-6 py-2 rounded-full font-label text-xs tracking-widest">VIEW PIECE</span>
+</div>
+</div>
+<div class="mt-6 px-4">
+<h3 class="font-headline text-xl font-bold">Cobalt Dream</h3>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label text-stone-500">$89</span>
+<div class="w-4 h-4 bg-electric-blue rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Standard Card 2 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-2 rounded-[2rem] overflow-hidden relative aspect-[3/4]">
+<img alt="Pink Mohair" class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-105 transition-transform duration-500" data-alt="Fuzzy neon pink mohair sweater hanging against a clean white wall, tactile and soft appearance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1gO9K0ljrGZyT6ICNpZSyhaTtqDpbGJtvi9_LQjJ-F6mAPYzMILoqKT6EBJOPw9rSYHK8nV9mu3zTFRmPqgBL7E6nllLmA2PNVVZcTAlWYdvMDmgNu7vO3X43PjWcnbRoTGrHZgZN-u_h_MGG4CLptPrsLFPeSD7fKji8L6pzCVDVWZuE7WnyaF8Dz0mNTKdD55mj4DAxdBAOTfl4QdCFl42r2NZV6Y9jYAGOm_1wE0HNKe9qYzKTqG_47AyNg1-L-IXylBLG4w4"/>
+<div class="absolute top-4 right-4 bg-neon-pink text-white text-[10px] font-label px-3 py-1 rounded-full uppercase tracking-widest">SOLD OUT</div>
+</div>
+<div class="mt-6 px-4">
+<h3 class="font-headline text-xl font-bold">Fuzz Pop Pink</h3>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label text-stone-500">$120</span>
+<div class="w-4 h-4 bg-neon-pink rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Wide Card -->
+<div class="md:col-span-2 group">
+<div class="bg-surface-container-high p-8 rounded-[4rem] flex flex-col md:flex-row gap-8 items-center h-full">
+<div class="w-full md:w-1/2 overflow-hidden rounded-[3rem]">
+<img alt="Abstract Knit" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Detail of a 1980s abstract geometric pattern sweater with neon accents and varied knit textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFUVKKI634NRkc5u5yLhP_UO4q_HDQCwjwqexXr8ScMRqneE-UkhdcadyIqyezBM-bhHAeBs2Y3T3NkozPf8zIsKzL9geM2FwcCvJ1APHVGNJ64io_Uwax_779xcvs-omUdvqupNm4zxGIgPKB7xpzB6lZTVuF8-9ETiEAXJ9LAYZQRCBCenLadYZigzOUJNM8SXHtas1GIZzFpXzA3mHHS_VKlaMShlA3V8a-F1F9tP78nDmYebml0t3O9OEEB-rhMb6F6ovb9I"/>
+</div>
+<div class="w-full md:w-1/2">
+<span class="text-neon-pink font-label text-[10px] uppercase tracking-[0.3em]">Editor's Choice</span>
+<h3 class="font-headline text-3xl font-bold mt-2 leading-tight">The 1984 Geometry Cardigan</h3>
+<p class="font-body text-sm mt-4 text-on-surface-variant">A kaleidoscope of textures, colors, and memories. Fully restored for modern wear.</p>
+<button class="mt-6 bg-on-surface text-white px-8 py-3 rounded-full font-label text-xs tracking-widest hover:bg-electric-blue transition-colors">ADD TO ARCHIVE • $175</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="mt-32 bg-stone-900 rounded-[5rem] p-12 md:p-24 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute top-10 left-10 w-40 h-40 border-4 border-electric-blue rounded-full rotate-45"></div>
+<div class="absolute bottom-10 right-10 w-60 h-60 border-4 border-neon-pink rounded-full -rotate-12"></div>
+</div>
+<h2 class="text-white font-headline text-5xl md:text-7xl font-extrabold mb-8 relative">Join the <span class="text-neon-pink underline decoration-electric-blue underline-offset-8">Circle</span></h2>
+<p class="text-stone-400 text-xl max-w-2xl mx-auto mb-12">Get exclusive access to weekly drops and the editorial newsletter for high-end thrifters.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-grow bg-white/10 border-b-2 border-stone-600 focus:border-neon-pink text-white px-6 py-4 rounded-full font-label text-sm transition-all outline-none" placeholder="YOUR EMAIL ADDRESS" type="email"/>
+<button class="bg-white text-stone-900 px-10 py-4 rounded-full font-label text-sm tracking-widest uppercase hover:bg-neon-pink hover:text-white transition-all">Subscribe</button>
+</form>
+</section>
+</main>
+<!-- SideNavBar (Cart Preview) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-[60] bg-stone-50 dark:bg-stone-950 flex flex-col h-full py-8 px-6 border-l border-stone-200 dark:border-stone-800 shadow-2xl translate-x-full lg:translate-x-0 hidden lg:flex">
+<div class="flex items-center gap-4 mb-12">
+<div class="w-12 h-12 bg-neon-pink rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<div>
+<div class="font-headline font-bold text-stone-900 dark:text-white">Your Archive</div>
+<p class="font-body text-[10px] text-stone-400 uppercase tracking-widest">2 Items Selected</p>
+</div>
+</div>
+<nav class="flex-grow space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-[2rem] bg-stone-200 text-stone-900 dark:text-white transition-transform ease-out duration-500">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">styler</span>
+<span class="font-label text-xs uppercase tracking-widest">Sweaters</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-[2rem] text-stone-400 hover:text-stone-700 hover:translate-x-[-4px] transition-transform ease-out duration-500">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label text-xs uppercase tracking-widest">Bags</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-[2rem] text-stone-400 hover:text-stone-700 hover:translate-x-[-4px] transition-transform ease-out duration-500">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-label text-xs uppercase tracking-widest">Jackets</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-[2rem] text-stone-400 hover:text-stone-700 hover:translate-x-[-4px] transition-transform ease-out duration-500">
+<span class="material-symbols-outlined">footprint</span>
+<span class="font-label text-xs uppercase tracking-widest">Shoes</span>
+</div>
+</nav>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-6 px-2">
+<span class="font-label text-xs text-stone-400 tracking-widest">SUBTOTAL</span>
+<span class="font-headline font-bold text-xl">$334.00</span>
+</div>
+<button class="w-full bg-stone-900 text-white py-6 rounded-full font-label text-xs tracking-widest uppercase hover:bg-secondary transition-colors shadow-lg">
+                Checkout Now
+            </button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="md:col-span-1">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4">The Curated Archive</div>
+<p class="font-body text-sm text-stone-500 leading-relaxed mb-6">Expertly selected artifacts of culture and cloth. Curating the future of vintage.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-stone-400 hover:text-neon-pink cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-neon-pink cursor-pointer transition-colors">podcasts</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-neon-pink cursor-pointer transition-colors">local_mall</span>
+</div>
+</div>
+<div>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest mb-6 text-stone-900">Directory</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Archives</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">New Arrivals</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Curators</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest mb-6 text-stone-900">Assistance</h4>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Shipping</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Returns</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Care Guide</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-opacity font-body text-sm" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest mb-6 text-stone-900">Legal</h4>
+<p class="font-body text-sm text-stone-600 dark:text-stone-400 leading-relaxed">© 2024 The Curated Archive. Editorial Thrift.</p>
+</div>
+</footer>
+</body></html>

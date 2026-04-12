@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-8 h-20 w-full max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase font-headline">
+            The Curated Archive
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-stone-900 dark:text-white font-bold border-b-2 border-red-600 font-headline tracking-tight" href="#">Bags</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 font-headline tracking-tight" href="#">Shirts</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 font-headline tracking-tight" href="#">Jackets</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 font-headline tracking-tight" href="#">Sweaters</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 font-headline tracking-tight" href="#">Shoes</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-stone-800 dark:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 p-2">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="text-stone-800 dark:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-colors duration-300 p-2">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-20">
+<!-- Hero Section: Modern Asymmetry -->
+<section class="editorial-grid min-h-screen items-stretch">
+<!-- Large Image Fragment -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-high relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional photography of a structured luxury black leather tote bag on a neutral stone pedestal, dramatic side lighting highlighting the fine grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoBTN-DEp6itWbrXpXjkWslo2u6F33poXHl9qK7TVVxRDF2u4oxys-2DJ6CpvDqkFfdmFXMDp2xpZEB6L-Z_L0K5jX7ynbwUvjupr8h0rtCB15VpmLhc27OI1Xw-XWIpcqy1l9G_33WA1pGpLKb_s3nf6bvZzi7sXkzbW6ocYryl-AngFvVcMceJ-tJPYtpFMsqljC6OLPPOKSigxbkzT8jPM4nAddZLCAW-ABvRuXQKiOJgckklh0V_AFUCDcZdxFV1wUQctRLzo"/>
+<div class="absolute bottom-12 left-12">
+<span class="font-label text-xs uppercase tracking-[0.3em] bg-surface-container-lowest px-4 py-2 text-primary">Archival Series 01</span>
+</div>
+</div>
+<!-- Product Intel -->
+<div class="col-span-12 lg:col-span-5 px-8 lg:px-16 py-16 lg:py-24 flex flex-col justify-center bg-surface">
+<div class="space-y-8">
+<header>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter leading-none mb-4 text-primary">SCULPTED TOTE</h1>
+<p class="font-label text-sm tracking-widest text-outline uppercase">Stock No. ARCH-772-B</p>
+</header>
+<div class="flex items-baseline gap-4">
+<span class="font-headline text-3xl font-bold">$1,240</span>
+<span class="font-label text-xs text-secondary bg-secondary-fixed px-2 py-0.5 rounded-full">Limited Release</span>
+</div>
+<p class="font-body text-lg leading-relaxed text-on-surface max-w-md">
+                        Meticulously crafted from full-grain Italian calfskin, this piece represents our pursuit of architectural purity. Designed to age with character, it features a seamless construction that eliminates traditional failure points.
+                    </p>
+<!-- Add to Bag CTA -->
+<div class="space-y-4 pt-4">
+<button class="w-full bg-primary text-on-primary font-headline font-bold py-6 px-8 flex items-center justify-between hover:bg-primary-container transition-all group">
+<span class="tracking-widest uppercase text-sm">Add to Bag</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+</button>
+<button class="w-full border-b border-outline-variant/30 py-4 text-left font-label text-xs tracking-widest uppercase hover:text-secondary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">favorite</span> Add to Wishlist
+                        </button>
+</div>
+<!-- Specs Accordion (Static for UI) -->
+<div class="mt-12 space-y-6">
+<div class="border-t border-outline-variant/20 pt-6">
+<h3 class="font-label text-xs tracking-widest uppercase font-bold mb-3">Material &amp; Origin</h3>
+<p class="font-body text-sm text-stone-600">100% Hand-stitched calf leather. Solid brass hardware with nickel plating. Sourced from Florence, IT.</p>
+</div>
+<div class="border-t border-outline-variant/20 pt-6">
+<h3 class="font-label text-xs tracking-widest uppercase font-bold mb-3">Dimensions</h3>
+<p class="font-body text-sm text-stone-600">H 40cm x W 32cm x D 14cm. Handle drop: 22cm.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Imagery: Bento Grid for Details -->
+<section class="p-8 lg:p-24 bg-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 aspect-[16/9] bg-surface relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro shot of high-quality leather stitching and brass hardware detailing on a luxury bag, soft moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC4dcPdMdG-ZbZjBCtIJzVOqr3DN_Tb0NsI9AIW5EKgI5afAWYxkxnk-FAvUBa0Ad6IcQjQ--SRR9ZsNsbuKrGgE8kVZIgchkyMWFT-o9tleE8HY4_enFXK2NJmfBKNe--o0mHC-nckRaxI1gYLGtNkWBgogcWBSpV6TubAagfkfQ6jPkKfoKklW7ieKcbT3XlZANIL8WdqEzy9HB6a2Jh7CYMfHEruitGtvnLpan8c7d7JE7OFr2eZcuaezPHbrh1ccnICUE2pik"/>
+</div>
+<div class="aspect-square bg-surface relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Interior of a luxury leather bag showing clean lining and organizational pockets in minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2dnfGinL_rq0l1x0-vvL5Y3Nnjz8LRxdTYfgGi2ls0UEkXnykbM8x7ES-BCko_KvJre2-eK0PiRroeIGP-lslv93kaHs_JkIcgYS3_8shv-aCsS9zxPsEELPQEf1goPj1TBMWwQMxApC6ATwwy02vF58wBCk9Zt1KGw0TtBoHFfJOBeMUXTAJ8FAwbX7arCONvSJxvMNl4kb3PWmybUgSMVYISN8YKJvcywCqQGCXsXBBEDvan4LBmGJCZnGdvTTl_hULr1a0zzg"/>
+</div>
+<div class="aspect-square bg-surface relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Fashion model holding a minimalist black tote bag against a neutral studio background, high fashion aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdGiGQpCf3G2-B6viBvlgfaqYEWkeZLKzAsBklj31QiML5lp5W3jJ4Cf2BZQQ4nZhzR4bejfWU4_qIGnTzTpxW-GR-wHa-o9za-eAkLFZYIHJ0Qv4Fatd0GT50XESiYeiFxilxQbP1Oa72pZmiRfsHjeexLVb9Hot1a8eaVVhTXY44YVT-OpxuBciS3V1MmhR_dddspmg9fcoLA56k3F-HQ7yTFb14kLW7iPAqisgQo2V4_UZqnZrdia6nWxQqEtSu3bc4qCqSFgA"/>
+</div>
+<div class="md:col-span-2 flex flex-col justify-center p-12 bg-surface-container-lowest">
+<h2 class="font-headline text-4xl font-extrabold mb-6 tracking-tight">THE ARCHITECTURAL RATIO</h2>
+<p class="font-body text-lg text-stone-600 max-w-lg mb-8">Every curve of the Sculpted Tote follows a specific geometric progression, ensuring that even when fully loaded, the bag maintains its structural integrity and visual poise.</p>
+<div class="flex gap-12">
+<div>
+<p class="font-label text-xl font-bold">14h</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-outline">Hand Assembly</p>
+</div>
+<div>
+<p class="font-label text-xl font-bold">0%</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-outline">Waste Goal</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Specs Feature List -->
+<section class="max-w-7xl mx-auto py-24 px-8 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest">Sustainability</h4>
+<p class="text-sm font-body text-stone-500">Vegetable-tanned leather utilizing zero harsh chemicals or heavy metals.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest">Lifetime Guarantee</h4>
+<p class="text-sm font-body text-stone-500">We offer complimentary repairs for life on all Archival Series hardware.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">package_2</span>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest">Global Courier</h4>
+<p class="text-sm font-body text-stone-500">Express insured shipping globally, carbon-offset as standard.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest">Provenance</h4>
+<p class="text-sm font-body text-stone-500">Includes a digital certificate of authenticity and workshop diary.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- SideNavBar (Cart Preview / Hidden by default in logic but here for visual mandate) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-[60] bg-stone-50 dark:bg-stone-950 border-l border-stone-200 dark:border-stone-800 shadow-2xl dark:shadow-stone-900/50 flex flex-col h-full py-8 px-6 translate-x-full lg:translate-x-full pointer-events-none">
+<div class="mb-12">
+<h2 class="font-headline text-lg font-bold text-stone-900 dark:text-white uppercase mb-1">Your Archive</h2>
+<p class="font-label text-[10px] tracking-widest text-stone-400">Items ready for curation</p>
+</div>
+<div class="flex-1 space-y-8 overflow-y-auto">
+<!-- Example Item -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-20 bg-stone-200">
+<img class="w-full h-full object-cover" data-alt="thumbnail of black luxury bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgbjyy8PYEOFDPiQL1ROd3HNyk1JEds-sL05POwpBj6SDCfC8NdD77gOIsMfyttDwB8X-41GIQ72TTV0BM8JYtZL4cyINdj2XWQJk0vFGX6m5Edz6lawkkTmjKFHswrxNbE3bUB_8zYycICZJIecnV8KZTCkQJt8vUahzhcWEwblVDON_smRTcEgIky_gU_lQN4JE1dhL7yZW7tPgOtxfz3BQ12s91qUQeDAeI8vdIG2o6_YkAYlsZ2CazygJW9g_ril00Z44TGBc"/>
+</div>
+<div>
+<p class="font-headline text-xs font-bold uppercase">Sculpted Tote</p>
+<p class="font-label text-[10px] text-stone-500 mt-1">$1,240</p>
+</div>
+</div>
+</div>
+<button class="mt-8 bg-stone-900 dark:bg-white text-white dark:text-stone-900 font-label text-[10px] tracking-[0.2em] py-4 uppercase">Checkout Now</button>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="col-span-1">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4 uppercase font-headline tracking-tighter">The Curated Archive</div>
+<p class="font-body text-sm text-stone-600 dark:text-stone-400 leading-relaxed">© 2024 The Curated Archive. Editorial Thrift.</p>
+</div>
+<div>
+<h5 class="font-label text-xs font-bold uppercase tracking-widest mb-6">Explore</h5>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Archives</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Shipping</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Sustainability</a></li>
+<li><a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-opacity" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label text-xs font-bold uppercase tracking-widest mb-6">Social</h5>
+<ul class="space-y-3 font-body text-sm text-stone-500 dark:text-stone-400">
+<li><a class="hover:text-stone-800 dark:hover:text-stone-200" href="#">Instagram</a></li>
+<li><a class="hover:text-stone-800 dark:hover:text-stone-200" href="#">Are.na</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label text-xs font-bold uppercase tracking-widest mb-6">Journal</h5>
+<p class="text-xs text-stone-500 mb-4 font-body leading-relaxed">Subscribe to our monthly editorial dispatch of rare acquisitions.</p>
+<div class="flex">
+<input class="bg-transparent border-b border-stone-300 dark:border-stone-700 py-2 w-full focus:outline-none focus:border-stone-900 font-body text-sm" placeholder="Email" type="email"/>
+<button class="ml-2 material-symbols-outlined">chevron_right</button>
+</div>
+</div>
+</footer>
+</body></html>

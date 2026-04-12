@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Space_Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 32px 64px -12px rgba(26, 28, 26, 0.06);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #faf9f6; }
+        ::-webkit-scrollbar-thumb { background: #5d5c5b; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase font-headline">
+                The Curated Archive
+            </div>
+<div class="hidden md:flex items-center space-x-10 font-['Epilogue'] tracking-tight">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300" href="#">Bags</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300" href="#">Shirts</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300" href="#">Jackets</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300" href="#">Sweaters</a>
+<a class="text-stone-900 dark:text-white font-bold border-b-2 border-red-600" href="#">Shoes</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="scale-95 duration-200 ease-in-out hover:bg-stone-100/50 p-2">
+<span class="material-symbols-outlined text-stone-800" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="scale-95 duration-200 ease-in-out hover:bg-stone-100/50 p-2">
+<span class="material-symbols-outlined text-stone-800" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1440px] mx-auto">
+<!-- Hero Header: Modern Asymmetry -->
+<header class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 items-end">
+<div class="md:col-span-7">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-primary mb-4 block">Archive Selection 004</span>
+<h1 class="font-headline text-7xl md:text-9xl font-extrabold tracking-tighter leading-[0.85] uppercase">
+                    Architectural<br/>Footwear
+                </h1>
+</div>
+<div class="md:col-span-5 pb-4">
+<p class="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                    A clinical examination of form and function. This collection focuses on brutalist silhouettes, monochrome leather, and industrial-grade construction.
+                </p>
+<div class="mt-8 flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary font-label text-xs tracking-widest uppercase hover:bg-primary-container transition-all">Filter Archive</button>
+<button class="px-8 py-3 border border-outline/20 font-label text-xs tracking-widest uppercase hover:bg-surface-container-low transition-all">Sort: Newest</button>
+</div>
+</div>
+</header>
+<!-- Product Grid: Asymmetric Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Item 1: Large Featured -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="aspect-[16/10] bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Modern minimalist sneaker with high-contrast studio lighting, focusing on the sleek silhouette against a clean grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh8rBRUO5JJ-50NXuXmI_88YDqujsJwih2zYFpj6h3cJ1owSyItaHd6DViMmVn-Bo9F9vWpP3tceEOHpnKMOBEHuGA5f85SdFl8Rd7Prrq01TWz9gcHFsx-s-qqzMdnFAPe0uFOuTWT5Z02uWYnu0fr1RW5sgEkqucBSssnppVl-mnDz8x-ByMXmXxQ76fogstpju2n7z9XmKtFiJpXJp64YMGbMYz225HV_ZnwG3Uat33HGaziBFx6469YOafwUtjRUhJrvO_dng"/>
+<div class="absolute bottom-0 left-0 p-8 bg-white/90 backdrop-blur-md max-w-xs">
+<span class="font-label text-[10px] tracking-widest text-primary mb-1 block">LIMITED RELEASE</span>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tighter">Void Runner 01</h3>
+<p class="font-label text-sm mt-2">$420.00</p>
+</div>
+</div>
+</div>
+<!-- Item 2: Vertical Small -->
+<div class="md:col-span-4 group cursor-pointer flex flex-col">
+<div class="aspect-[4/5] bg-surface-container-high overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Close up of a black technical boot with industrial zippers, matte leather texture under sharp directional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqz4ioXwHFSGxHGj8WY9DyP7ctYuvjF3Kdq4vB-5iVb4ZHI3JMQcu-dpURNy43bD4mJuYvJ3oKPRWAhkq8bhT34SCRMaf0UP0sdRXka1qkiN7H0jSMqOYaeEKmlXuhr7hYabMTcMViYGzv2PeZwZOCUBm8g7BRVTxEnRX_YFl9_9y5V3Bs2FRC5bq6P0ODtxsXFl-o0H0t8NRXmkozF75nF02Ok8a501T-MWm-Af7f8UIPq-MhhYIkxRiXI2PwIToONPBckIVCQts"/>
+</div>
+<div class="pt-6">
+<h3 class="font-headline text-lg font-bold uppercase">Tactical Chelsea</h3>
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mt-1">Industrial Black / 100% Leather</p>
+<p class="font-label text-sm mt-4">$385.00</p>
+</div>
+</div>
+<!-- Item 3: Square -->
+<div class="md:col-span-4 group cursor-pointer flex flex-col mt-[-2rem] md:mt-0">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Avant-garde high-fashion chunky sole sneaker, monochrome white, studio photography with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW__0xEsPYLa-r15FyhOsi09T9rE5eZ4yn2B2ObevQ7_81mopJq8CA4MfCcnk6D5b2e505jaztKDUIWrB54gHxFgs3tI5FvtV6j2afQ0NwNGOhjce70aNUAdP-KKZofWniB5wmXF_LhvI1WRzqpwMQk0dI5R3P_JNQbCcGB56CcTX9BUmN9_6GbwD5PHUoC144c1PMh-KzM7ntqyaCAYwU9FvxYTIslpw90tym4nkBk0FTitR6gsjYQru2WzKcYmNSkFiv8VCmLlw"/>
+</div>
+<div class="pt-6">
+<h3 class="font-headline text-lg font-bold uppercase">Platform Mono</h3>
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mt-1">Optic White / Vulcanized</p>
+<p class="font-label text-sm mt-4">$290.00</p>
+</div>
+</div>
+<!-- Item 4: Long Vertical Hero -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Distressed vintage-style leather boots, high-end thrift aesthetic, warm neutral studio lighting with soft grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2hUxabwsUKPBxsaqTdVhZQPxh7nJY2MC5KEZyZ-MixZJa2BvMKXUp3lBIjcEFIP-7RssjjUsJUJac6zU_phMc7ZCt2xGzyGnSF_QAZfVCcenQsBkblXBMV2GdCwCied5CzDlexNruqQj7GQqJNBD9xh-_40uQmUAjtMKveRiZ9HoRy7UyGqqW-UnbSiCvIS4Mwhr83lM07yoGl7z21eqTC7yJbW0ckgeP_tV9YtnAQ8YFiTCFIaYDNQywJK3i3JiT9n2tjToGrqk"/>
+</div>
+<div class="pt-6">
+<h3 class="font-headline text-lg font-bold uppercase">Archive Combat</h3>
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mt-1">Patina Brown / Hand-stitched</p>
+<p class="font-label text-sm mt-4">$560.00</p>
+</div>
+</div>
+<!-- Item 5: Small Square Bottom -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="aspect-square bg-surface-container-highest overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="Minimalist low-top leather sneaker in slate grey, clean industrial design against a textured concrete wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBgqgZipiBVxzUdhlys5CeglE9cM1OLahlP1jtb2EQ9OyuklzOyR-h-9gQcXFa2q3VwL2AtITzg9l3mKFaLcbljSCVBiA1GRaGNIvIM-IOFWu0JmJmMjK7TzP7MmNiTXKJlVhX-eN6Fk4c4RLFD1PK2e8yhBCrGU5u9L5OFvDjkvQ3vyXaCSPSaCkuoLWVF4gmlmXkztcgAF3Fl4PRL6eZSw9153yGNGQcbb-eWOlWcidPVLc-G-1ZjtWUXwQHMfGkrUvZb1Pdj1o"/>
+</div>
+<div class="pt-6">
+<h3 class="font-headline text-lg font-bold uppercase">Slate Court</h3>
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mt-1">Concrete Grey / Suede</p>
+<p class="font-label text-sm mt-4">$210.00</p>
+</div>
+</div>
+</div>
+<!-- Pagination/Navigation Section -->
+<div class="mt-32 flex flex-col items-center">
+<p class="font-label text-[10px] tracking-[0.5em] text-primary uppercase mb-8">Showing 05 of 42 Items</p>
+<button class="group flex flex-col items-center gap-4">
+<span class="w-px h-24 bg-gradient-to-b from-primary to-transparent"></span>
+<span class="font-headline text-xl font-bold uppercase tracking-widest group-hover:tracking-[0.5em] transition-all duration-500">View All Shoes</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4 uppercase font-headline">The Curated Archive</div>
+<p class="font-['Manrope'] text-sm leading-relaxed text-stone-600 dark:text-stone-400">© 2024 The Curated Archive. Editorial Thrift.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label text-xs tracking-widest uppercase font-bold text-stone-900 dark:text-white mb-2">Explore</h4>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Archives</a>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Shipping</a>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Sustainability</a>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label text-xs tracking-widest uppercase font-bold text-stone-900 dark:text-white mb-2">Technical</h4>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Sizing Guide</a>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Materials</a>
+<a class="font-['Manrope'] text-sm text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 opacity-80 hover:opacity-100 transition-opacity" href="#">Authentication</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label text-xs tracking-widest uppercase font-bold text-stone-900 dark:text-white">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-stone-300 dark:border-stone-700 py-2 font-label text-xs tracking-widest focus:ring-0 focus:border-stone-900 dark:focus:border-white transition-all uppercase px-0" placeholder="JOIN THE ARCHIVE" type="email"/>
+<button class="absolute right-0 bottom-2 text-stone-900 dark:text-white">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

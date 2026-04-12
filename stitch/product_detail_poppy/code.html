@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700;800&amp;family=Manrope:wght@400;500;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e9e8e5",
+                    "surface-container-low": "#f4f3f1",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#efe0cd",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-highest": "#e3e2e0",
+                    "tertiary-fixed-dim": "#d2c4b2",
+                    "on-surface-variant": "#5b403f",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f4538",
+                    "on-secondary-fixed": "#3a0b00",
+                    "outline-variant": "#e4bebc",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d43f00",
+                    "on-primary-container": "#f7feff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#221a0f",
+                    "primary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#faf9f6",
+                    "secondary": "#aa3000",
+                    "tertiary-container": "#7e7363",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1a",
+                    "on-background": "#1a1c1a",
+                    "outline": "#8f6f6e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#852400",
+                    "tertiary": "#655a4c",
+                    "surface": "#faf9f6",
+                    "primary-container": "#757474",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f1ee",
+                    "secondary-fixed": "#ffdbd0",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-8 h-20 w-full max-w-full bg-gradient-to-b from-stone-200/50 to-transparent">
+<div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white uppercase font-headline">The Curated Archive</div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight">
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300" href="#">Bags</a>
+<a class="text-stone-900 font-bold border-b-2 border-red-600 transition-colors duration-300" href="#">Accessories</a>
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300" href="#">Shirts</a>
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300" href="#">Jackets</a>
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300" href="#">Sweaters</a>
+<a class="text-stone-500 font-medium hover:text-stone-900 transition-colors duration-300" href="#">Shoes</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100/50 transition-colors duration-300 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="p-2 hover:bg-stone-100/50 transition-colors duration-300 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-20 min-h-screen">
+<!-- Poppy Mode Background Accent -->
+<div class="fixed top-0 right-0 -z-10 w-1/2 h-full bg-secondary-fixed/30 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/4"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-1/3 h-1/2 bg-tertiary-fixed/40 blur-[100px] rounded-full -translate-x-1/4 translate-y-1/4"></div>
+<div class="max-w-[1440px] mx-auto px-8 py-12 lg:py-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Interactive Gallery (Asymmetric Layout) -->
+<div class="lg:col-span-7 space-y-8">
+<div class="relative group">
+<div class="absolute -top-6 -left-6 z-10 bg-secondary text-white font-label px-6 py-2 rounded-full rotate-[-4deg] shadow-lg text-lg font-bold tracking-widest uppercase">
+                            Rare Find
+                        </div>
+<div class="aspect-[4/5] bg-surface-container-lowest overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of a vibrant neon orange designer handbag with chunky silver hardware set against a bold cobalt blue studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mYihtO-bkw8mlZSVa9qLVEsY13_yP5DIUYjw2aV8VmIicVB4GYLuSOOtMT7gZ-r4h8acIDEk9iso37vT1DXtnsw9aTaM0GMiduMXGDsxuNYSAuHtImZoi4FdavGZzXE8QNQUQcpaO7-kzow3gFfj4fUJAfsuRyoCyvi-HGMH_pCrc9VDLRT07FXlyyhb1H1VD_-iX09HojfdjJSCFHdni6kfxTuyzRw3zKCH_Gqoa-UFcyPTc3mUT5UcawEeqHktiMKM-R2XkOc"/>
+</div>
+</div>
+<!-- Thumbnail Bento Grid -->
+<div class="grid grid-cols-3 gap-4">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden cursor-pointer hover:ring-4 ring-secondary transition-all">
+<img class="w-full h-full object-cover" data-alt="Detail of a textured orange leather strap with precision white stitching under bright direct sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj1Hlq07GOhMu8UtdEkdijc2Wa-RRLA5hMxbcQbPTC-GwXhDn_QNuHxVTQ9LQinLiL2EaUQH2115mx2wICBfSfFRBHb2mLVXEwltX7s_6ScnCCLYI_IO5CBTj7tf0icPsEhzLn6AnDwObNUpecJC3o4bf1kLrVYibmP8pskT34ksp5mi76-88cF88po38XHulNHc_yTR4z3VPasqegze5-2OAbJqfvRD81f4T3Jwg3sIRr9nhkCRERzpJWydkZaizgHQGqilSCY8Y"/>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden cursor-pointer hover:ring-4 ring-secondary transition-all">
+<img class="w-full h-full object-cover" data-alt="Inside view of a bright silk lined luxury bag showing archival label and metallic details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Ni57v3fVxuErXAW3fFqNNKKpC-1bApC8C6cURH-dYyN9s6Ph40FKBTWVdxsaRWV0zHN-271BNXZlzUB8meeMWl2P-h-QLJnnvEhEHZr3vgdz-AhTP1TQDofhLm7W7Y8ewacSZ8X0rUVQ_Aag_I8FTpJV6VWrH6Gnp7EOni_w1yR_Z4A_aRl64JMWz4aahvYR9c3RpbgEfeUu_gs5bE25B5hQKBdP7bhVVvSC7skVQfNpiufzqzZHLDfeSUfcvQdlyvM1vQwn6H4"/>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden cursor-pointer hover:ring-4 ring-secondary transition-all relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="Artistic blurry motion shot of a person carrying a vibrant accessory down a bright urban street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSCO-8cM6lSUuPrez4kNAt1nt0fPTLxfb7NjwyQaY8QIiPojvnynPgJFChrHPwZSoJhy7EvB0BNZdauIkLLUYDD945HrqYCxvVVNLS9TfZ6Us_TgK9-3YKIlsVu1UkNS_T256QJc5pWYdWHIQCJQy1_ZGVruaIcbThxgsp9pk1uGTTrja_HZou5gYuTIEXheG0rotCtI1JRcmKZjfk4tzLGphI_C_O3mpK8hn6QJ6__PIJPIZdKgojL1xQCkjRy_273-lfKSKF-ZY"/>
+<div class="absolute inset-0 flex items-center justify-center font-label font-bold text-on-surface">
+                                +4 View
+                            </div>
+</div>
+</div>
+</div>
+<!-- Product Info & Bold CTA -->
+<div class="lg:col-span-5 lg:sticky lg:top-32 space-y-10">
+<header class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="font-label text-xs tracking-[0.2em] uppercase text-secondary font-bold">Category: Curated Accessories</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-[0.9] text-on-surface">
+                            NEON <br/> ARCHIVE <br/> <span class="text-secondary">012</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-md">
+                            A high-chroma statement piece from our 1994 editorial vault. Re-conditioned for the modern curator who refuses to blend into the concrete.
+                        </p>
+</header>
+<!-- Price & Selection -->
+<div class="space-y-8">
+<div class="flex items-baseline gap-4">
+<span class="text-4xl font-headline font-bold text-on-surface">$1,240.00</span>
+<span class="font-label text-secondary line-through opacity-50">$1,800.00</span>
+</div>
+<div class="space-y-4">
+<h3 class="font-label text-xs uppercase tracking-widest font-bold">Select Finish</h3>
+<div class="flex gap-3">
+<button class="w-12 h-12 rounded-full bg-secondary ring-4 ring-offset-4 ring-secondary/20 transition-transform active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-tertiary ring-2 ring-transparent hover:ring-tertiary ring-offset-2 transition-transform active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-primary ring-2 ring-transparent hover:ring-primary ring-offset-2 transition-transform active:scale-90"></button>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col gap-4">
+<button class="group relative bg-secondary text-white font-headline text-xl font-extrabold py-6 rounded-full overflow-hidden shadow-2xl hover:shadow-secondary/40 transition-all hover:-translate-y-1">
+<span class="relative z-10 flex items-center justify-center gap-3">
+                                    ADD TO COLLECTION
+                                    <span class="material-symbols-outlined text-3xl" data-icon="arrow_forward">arrow_forward</span>
+</span>
+<div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</button>
+<button class="font-label text-xs tracking-[0.3em] font-bold text-on-surface-variant hover:text-on-surface py-2 uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+                                SAVE TO WISHLIST
+                            </button>
+</div>
+</div>
+<!-- Trust/Editorial Notes -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+<div>
+<h4 class="font-label font-bold text-xs uppercase">Authenticity Guaranteed</h4>
+<p class="text-sm text-on-surface-variant">Every item is manually inspected and certified by our editorial team.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+<div>
+<h4 class="font-label font-bold text-xs uppercase">Express Curation</h4>
+<p class="text-sm text-on-surface-variant">Shipped in our signature archival dust bag within 48 hours.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Details Section -->
+<section class="mt-32 space-y-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8">
+<h2 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter max-w-xl">
+                        BEYOND THE <br/> <span class="text-secondary-fixed-dim bg-secondary p-1">SURFACE.</span>
+</h2>
+<div class="font-label text-sm uppercase font-bold text-secondary tracking-widest pb-4">
+                        SKU: ARCHIVE-24-0992
+                    </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-6 shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-2xl font-bold">Materiality</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Crafted from premium Italian pebble-grain leather with a fluorescent pigment infusion that glows under UV light.
+                        </p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-6 shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="history">history</span>
+<h3 class="font-headline text-2xl font-bold">Provenance</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Originally sourced from a private collector in Tokyo. Part of the 'Techno-Organic' collection of the mid-90s.
+                        </p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-6 shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="eco">eco</span>
+<h3 class="font-headline text-2xl font-bold">Impact</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Buying archival extends the lifecycle of high-quality goods, reducing the need for new raw material extraction.
+                        </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- SideNavBar (Cart Preview) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-[60] bg-stone-50 dark:bg-stone-950 border-l border-stone-200 dark:border-stone-800 shadow-2xl flex flex-col h-full py-8 px-6 translate-x-full transition-transform duration-500 ease-out">
+<div class="flex justify-between items-center mb-12">
+<div class="font-label uppercase text-xs tracking-widest font-bold">Your Archive</div>
+<button class="p-2 hover:bg-stone-200 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex-grow space-y-6">
+<div class="flex gap-4 group">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of neon orange bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrkD8KyqRQVda0jyGz_Vl1m-PN0Kn7HK1tXeiQOzp21fwPn9YcYXuoIfLvIjDPSMj4_iuAvPZVuz3afxJ8SpaJ98qLIz-X2HEPsnVsu83sgdRQg0RNRhdZU4qZyPYpeiSV38oW7npufTepB_kefGSNddNDlKrrNig_cCn5Lahnv4CeKnOPo7FhyAUji-xPFtbcceTJT3-RhGUWOpB074a2dJQMC2TIqaYxrY9sUW8TxVaFXt5hCm-t3s1wCwxmIgf4gyTT_LNwUfs"/>
+</div>
+<div>
+<div class="font-label text-xs font-bold uppercase truncate w-32">Neon Archive 012</div>
+<div class="text-xs text-on-surface-variant">$1,240.00</div>
+</div>
+</div>
+</div>
+<div class="mt-auto space-y-4 pt-8 border-t border-stone-200">
+<div class="flex justify-between items-center font-label text-xs font-bold uppercase">
+<span>Total</span>
+<span>$1,240.00</span>
+</div>
+<button class="w-full bg-stone-900 text-white font-label text-xs tracking-widest font-bold py-4 rounded-none hover:bg-stone-800 transition-colors uppercase">
+                Checkout Now
+            </button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full font-body text-sm leading-relaxed text-stone-600">
+<div class="space-y-4">
+<div class="text-lg font-bold text-stone-900 dark:text-white mb-4">The Curated Archive</div>
+<p class="max-w-xs">An editorial lens on vintage luxury and archival garments. Expertly picked, precisely documented.</p>
+</div>
+<div>
+<h4 class="font-label font-bold text-xs uppercase tracking-widest mb-6 text-stone-900">Archives</h4>
+<ul class="space-y-3">
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Spring 2024 Collection</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Techno-Organic Vault</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Leather Goods</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">New Arrivals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-xs uppercase tracking-widest mb-6 text-stone-900">Information</h4>
+<ul class="space-y-3">
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Shipping</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Sustainability</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Authenticity</a></li>
+<li><a class="text-stone-500 hover:text-stone-800 transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label font-bold text-xs uppercase tracking-widest text-stone-900">Newsletter</h4>
+<div class="flex border-b border-stone-300 py-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label w-full" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="material-symbols-outlined text-stone-900" data-icon="trending_flat">trending_flat</button>
+</div>
+<div class="text-xs pt-4">© 2024 The Curated Archive. Editorial Thrift.</div>
+</div>
+</footer>
+</body></html>
