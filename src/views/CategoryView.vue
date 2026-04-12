@@ -386,7 +386,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -477,25 +477,33 @@ watch(() => route.params.categorySlug, () => {
   activeFilter.value = 'all'
 })
 
+let ctx: gsap.Context
 // Entrance animations
 onMounted(() => {
-  if (headerRef.value) {
-    gsap.from(headerRef.value, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      delay: 0.1,
-    })
-  }
-  if (gridRef.value) {
-    gsap.from(gridRef.value, {
-      y: 60,
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power2.out',
-      delay: 0.3,
-    })
-  }
+  ctx = gsap.context(() => {
+    if (headerRef.value) {
+      gsap.from(headerRef.value, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.1,
+      })
+    }
+    if (gridRef.value) {
+      gsap.from(gridRef.value.querySelectorAll('.group'), {
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power2.out',
+        stagger: 0.08,
+        delay: 0.3,
+      })
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  if (ctx) ctx.revert()
 })
 </script>

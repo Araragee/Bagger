@@ -254,7 +254,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -277,69 +277,77 @@ const recentDrops = computed(() =>
   [...PRODUCTS].sort((a, b) => b.id - a.id).slice(0, 8)
 )
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  // Hero text reveal
-  gsap.from(heroTextRef.value, {
-    y: 60,
-    opacity: 0,
-    duration: 1.4,
-    ease: 'power3.out',
-    delay: 0.1,
-  })
-
-  // Badge spin-in
-  gsap.from(badgeRef.value, {
-    scale: 0,
-    opacity: 0,
-    rotation: -45,
-    duration: 0.8,
-    ease: 'back.out(1.7)',
-    delay: 0.8,
-  })
-
-  // Scroll-triggered rows
-  const rows = [row1Ref.value, row2Ref.value, row3Ref.value]
-  rows.forEach((el) => {
-    if (!el) return
-    gsap.from(el, {
+  ctx = gsap.context(() => {
+    // Hero text reveal
+    gsap.from(heroTextRef.value, {
       y: 60,
       opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
+      duration: 1.4,
+      ease: 'power3.out',
+      delay: 0.1,
     })
-  })
 
-  // Quote section
-  gsap.from(quoteRef.value, {
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: quoteRef.value,
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-  })
-
-  // Drops grid stagger
-  if (dropsRef.value) {
-    gsap.from(dropsRef.value.querySelectorAll('article'), {
-      y: 40,
+    // Badge spin-in
+    gsap.from(badgeRef.value, {
+      scale: 0,
       opacity: 0,
-      duration: 0.7,
+      rotation: -45,
+      duration: 0.8,
+      ease: 'back.out(1.7)',
+      delay: 0.8,
+    })
+
+    // Scroll-triggered rows
+    const rows = [row1Ref.value, row2Ref.value, row3Ref.value]
+    rows.forEach((el) => {
+      if (!el) return
+      gsap.from(el, {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      })
+    })
+
+    // Quote section
+    gsap.from(quoteRef.value, {
+      opacity: 0,
+      duration: 1.2,
       ease: 'power2.out',
-      stagger: 0.08,
       scrollTrigger: {
-        trigger: dropsRef.value,
+        trigger: quoteRef.value,
         start: 'top 80%',
         toggleActions: 'play none none none',
       },
     })
-  }
+
+    // Drops grid stagger
+    if (dropsRef.value) {
+      gsap.from(dropsRef.value.querySelectorAll('article'), {
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: dropsRef.value,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      })
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  if (ctx) ctx.revert()
 })
 </script>

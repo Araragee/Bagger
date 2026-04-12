@@ -22,7 +22,14 @@
   * {
     border-color: transparent;
   }
+
+  /* Accessibility: Focus rings */
+  *:focus-visible {
+    outline: 2px solid theme('colors.outline');
+    outline-offset: 4px;
+  }
 }
+
 
 @layer components {
   /* Glassmorphism — floating headers, quick-view modals */
