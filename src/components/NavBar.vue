@@ -17,7 +17,7 @@
       <router-link
         v-for="cat in CATEGORIES"
         :key="cat.slug"
-        :to="`/${cat.slug}s`"
+        :to="`/${cat.slug === 'accessory' ? 'accessories' : cat.slug + 's'}`"
         class="font-headline text-sm font-medium tracking-tight text-on-surface-variant hover:text-on-surface transition-colors duration-200"
         active-class="text-on-surface border-b-2 border-secondary font-bold"
       >
@@ -89,7 +89,7 @@
           <router-link
             v-for="cat in CATEGORIES"
             :key="cat.slug"
-            :to="`/${cat.slug}s`"
+            :to="`/${cat.slug === 'accessory' ? 'accessories' : cat.slug + 's'}`"
             class="font-headline font-bold text-4xl tracking-tighter text-on-surface uppercase py-3 border-b border-surface-container-high hover:text-secondary transition-colors duration-200"
             @click="closeMobileMenu"
           >

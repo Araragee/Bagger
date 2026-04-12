@@ -19,7 +19,7 @@
         <div class="flex flex-col justify-center min-h-[50vh] stagger-content">
           <!-- Breadcrumb / Category -->
           <div class="flex items-center space-x-3 mb-6">
-             <router-link :to="`/${product.category}s`" class="font-label text-sm uppercase tracking-archive text-outline hover:text-on-surface transition-colors">
+             <router-link :to="`/${product.category === 'accessory' ? 'accessories' : product.category + 's'}`" class="font-label text-sm uppercase tracking-archive text-outline hover:text-on-surface transition-colors">
                {{ category?.name }} Archive
              </router-link>
              <span class="text-outline">/</span>
