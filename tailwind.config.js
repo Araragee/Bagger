@@ -14,10 +14,34 @@ export default {
         moss: '#5A5A36',
         tan: '#C99B6A',
         cream: '#F6F1E7',
+        // Dark "craft" palette (Rolex-led) for section-split theming
+        espresso: '#19130D',
+        char: '#221A12',
+        'char-2': '#2C2218',
+        brass: '#B08D57',
+        'brass-bright': '#C9A86A',
+        'bone-dim': '#B9AC96',
+        // Semantic, theme-aware (resolve via tokens.css data-theme)
+        surface: 'var(--surface)',
+        'surface-2': 'var(--surface-2)',
       },
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
         sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        // Fluid scale wired to tokens.css
+        'fluid-sm': 'var(--step--1)',
+        'fluid-base': 'var(--step-0)',
+        'fluid-lg': 'var(--step-1)',
+        'fluid-xl': 'var(--step-2)',
+        'fluid-2xl': 'var(--step-3)',
+        'fluid-3xl': 'var(--step-4)',
+        display: ['var(--display)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
+      },
+      transitionTimingFunction: {
+        leather: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        settle: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
       letterSpacing: {
         widest: '0.25em',

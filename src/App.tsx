@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Marquee from './components/Marquee'
 import CartDrawer from './components/CartDrawer'
 import ScrollToTop from './components/ScrollToTop'
+import SmoothScroll from './components/SmoothScroll'
 import Toaster from './components/Toaster'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
@@ -18,6 +19,7 @@ import NotFound from './pages/NotFound'
 export default function App() {
   return (
     <div className="relative flex min-h-screen flex-col">
+      <SmoothScroll />
       <ScrollToTop />
       <Marquee />
       <Header />

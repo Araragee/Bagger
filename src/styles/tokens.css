@@ -1,0 +1,86 @@
+/**
+ * Design tokens v2 — the foundation for the high-end redesign.
+ *
+ * Semantic, theme-aware variables so any section can flip between the bright
+ * "clarity" palette (Apple) and the dark "craft" palette (Rolex) just by setting
+ * data-theme. Components read the semantic vars (--bg, --text, --accent, …),
+ * never raw hex, so the section-split aesthetic is a one-attribute switch.
+ */
+
+:root {
+  /* ── Fluid type scale (clamp: min @ 360px → max @ 1440px) ── */
+  --step--1: clamp(0.78rem, 0.74rem + 0.18vw, 0.88rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.06rem);
+  --step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  --step-2: clamp(1.45rem, 1.25rem + 1vw, 2rem);
+  --step-3: clamp(1.85rem, 1.5rem + 1.8vw, 2.9rem);
+  --step-4: clamp(2.4rem, 1.85rem + 2.8vw, 4.2rem);
+  --display: clamp(3rem, 1.8rem + 6vw, 8rem);
+
+  /* ── Motion ── */
+  --ease-leather: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --dur-fast: 0.2s;
+  --dur: 0.45s;
+  --dur-slow: 0.9s;
+  --stagger: 70ms;
+
+  /* ── Rhythm ── */
+  --section-y: clamp(4rem, 8vw, 9rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ── Light theme: "clarity" (default) ── */
+  --bg: #ede6d6; /* bone */
+  --surface: #f6f1e7; /* cream */
+  --surface-2: #e3dac6; /* bone-200 */
+  --text: #17130e; /* ink */
+  --text-soft: #3a332a; /* ink-soft */
+  --line: rgba(23, 19, 14, 0.12);
+  --accent: #be4a24; /* clay */
+  --accent-2: #5a5a36; /* moss */
+  --on-accent: #f6f1e7;
+}
+
+/* ── Dark theme: "craft" ── */
+[data-theme='dark'] {
+  --bg: #19130d; /* espresso */
+  --surface: #221a12; /* char */
+  --surface-2: #2c2218;
+  --text: #ede6d6; /* bone */
+  --text-soft: #b9ac96;
+  --line: rgba(237, 230, 214, 0.14);
+  --accent: #b08d57; /* brass */
+  --accent-2: #c99b6a; /* tan */
+  --on-accent: #17130e;
+}
+
+/* A themed section: paints itself from the active palette. */
+.panel {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Semantic helpers that follow the active theme (for redesign work). */
+.bg-surface { background-color: var(--surface); }
+.bg-surface-2 { background-color: var(--surface-2); }
+.text-soft { color: var(--text-soft); }
+.border-line { border-color: var(--line); }
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.on-accent { color: var(--on-accent); }
+
+/* Lenis smooth-scroll base (applied when smooth scroll is active). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

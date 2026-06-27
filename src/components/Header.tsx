@@ -4,6 +4,7 @@ import Logo from './Logo'
 import { BagIcon, MenuIcon, CloseIcon, UserIcon } from './Icons'
 import { useCart, useCartCount } from '../store/cart'
 import { useAuth } from '../store/auth'
+import { getLenis } from '../lib/lenis'
 
 const nav = [
   { to: '/shop', label: 'Shop' },
@@ -30,11 +31,14 @@ export default function Header() {
   // Close the mobile sheet on navigation
   useEffect(() => setMobileOpen(false), [location])
 
-  // Lock body scroll while the mobile sheet is open
+  // Lock body scroll (and pause smooth scroll) while the mobile sheet is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    if (mobileOpen) getLenis()?.stop()
+    else getLenis()?.start()
     return () => {
       document.body.style.overflow = ''
+      getLenis()?.start()
     }
   }, [mobileOpen])
 

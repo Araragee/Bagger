@@ -4,6 +4,7 @@ import { useCart, useCartTotal, lineProduct } from '../store/cart'
 import { formatPrice } from '../data/products'
 import ProductArt from './ProductArt'
 import { CloseIcon, MinusIcon, PlusIcon, ArrowIcon } from './Icons'
+import { getLenis } from '../lib/lenis'
 
 const FREE_SHIP = 150
 
@@ -15,8 +16,12 @@ export default function CartDrawer() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
+    // Pause smooth scroll so the page behind the drawer can't move
+    if (isOpen) getLenis()?.stop()
+    else getLenis()?.start()
     return () => {
       document.body.style.overflow = ''
+      getLenis()?.start()
     }
   }, [isOpen])
 
@@ -65,7 +70,7 @@ export default function CartDrawer() {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-5 py-4">
+            <div className="flex-1 overflow-y-auto px-5 py-4" data-lenis-prevent>
               <ul className="space-y-5">
                 {lines.map((line) => {
                   const product = lineProduct(line)

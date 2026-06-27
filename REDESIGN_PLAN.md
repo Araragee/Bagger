@@ -6,9 +6,37 @@
 > languages of **Apple, Xiaomi, Rolex, and Gucci**, synthesize the best of each,
 > and push past them with motion (GSAP/Lenis) and 3D (Three.js/R3F).
 >
-> This document is the plan + the checklist. No app code is changed here — it's
-> the brief we build against next. Items are tagged **D0** (foundation, do
-> first) → **D3** (signature polish).
+> This document is the plan + the checklist. Items are tagged **D0**
+> (foundation, do first) → **D3** (signature polish).
+
+**Chosen aesthetic:** *section-split light/dark* — bright "clarity" panels
+(Apple) alternating with dark "craft" panels (Rolex), driven by the `<Panel>`
+primitive + theme-aware tokens.
+
+---
+
+## ⚙️ D0 scaffold — SHIPPED
+
+The foundation is in place (non-breaking; the existing site is unchanged):
+
+- ✅ **Design tokens v2** — `src/styles/tokens.css`: fluid type scale, motion
+  easings (`--ease-leather`), rhythm, and **light + dark semantic palettes**
+  that flip on `data-theme`. Dark "craft" colours + fluid sizes + leather
+  easings also exposed as Tailwind utilities.
+- ✅ **`<Panel tone="light|dark">`** primitive (`src/components/Panel.tsx`) — the
+  section-split switch; nested components inherit the active theme.
+- ✅ **Lenis smooth scroll** (`src/components/SmoothScroll.tsx`) — inertia scroll,
+  GSAP-ticker driven, **dynamically imported** so it never blocks first paint.
+- ✅ **GSAP + ScrollTrigger** wired (`src/lib/gsap.ts`) + `useGsapScope` hook
+  (`src/lib/useGsapScope.ts`) — scoped, auto-cleanup, reduced-motion-aware.
+- ✅ **Reduced-motion guardrails** (`src/lib/motion.ts`) — Lenis off + animations
+  skipped under `prefers-reduced-motion` (verified).
+- ✅ **Perf**: motion libs are async chunks (GSAP 45 KB / Lenis 5.6 KB gzip);
+  main bundle stayed ~78 KB gzip.
+- ✅ **Asset pipeline starter** (`docs/ASSETS.md`) + `public/{models,img,env}` plan.
+
+**Next (D1):** real photography/`.glb` models, then the cinematic 3D hero and
+PDP viewer.
 
 ---
 
@@ -67,25 +95,24 @@ Recommendation: **dual-mode by section**, not a global dark theme. Home and PDP 
 
 ## 3. Design-system overhaul (D0)
 
-- [ ] **Type scale rebuild.** Introduce a true display face with character — keep
-      `Fraunces` for editorial serif, add a tighter grotesk for UI (`Söhne`/
-      `Neue Haas` vibe; free stand-in: `Geist` or `Inter Tight`). Define a
-      fluid `clamp()` scale (display / h1–h4 / body / caption) with explicit
-      tracking + leading per step.
-- [ ] **Color tokens v2.** Formalize light + dark palettes as CSS variables:
-      bone/cream/ink/clay (light) and espresso/char/bone-dim/**brass** (dark).
-      Add a single restrained metallic accent (`brass #B08D57`) used *sparingly*.
+- [~] **Type scale rebuild.** Fluid `clamp()` scale (display / h1–h4 / body /
+      caption) shipped in `tokens.css` + Tailwind. *Still to do:* swap the UI sans
+      for a tighter grotesk (`Söhne`/`Neue Haas` vibe; free stand-in `Geist` /
+      `Inter Tight`) and tune per-step tracking. *(D0 partial)*
+- [x] **Color tokens v2.** Light + dark palettes as CSS variables: bone/cream/
+      ink/clay (light) and espresso/char/bone-dim/**brass** (dark); single
+      metallic accent (`brass #B08D57`). *(D0 — `tokens.css`)*
 - [ ] **Spacing & grid.** Adopt a 12-col fluid grid with generous gutters; define
       a vertical rhythm scale. Add an asymmetric layout utility set (off-center
       hero, editorial 7/5 splits).
-- [ ] **Motion tokens.** Standardize easings (`--ease-leather: cubic-bezier(0.16,1,0.3,1)`),
-      durations, and stagger steps so every animation feels from one hand.
+- [x] **Motion tokens.** Easings (`--ease-leather`), durations, and stagger
+      steps standardized so every animation feels from one hand. *(D0)*
 - [ ] **Elevation & texture.** Replace flat fills with subtle paper/leather grain,
       soft long shadows, and 1px hairline rules (luxury detail).
 - [ ] **Cursor & focus states.** Custom cursor on desktop (magnetic on CTAs),
       beautiful focus rings for a11y. Disabled on touch.
-- [ ] **Design tokens file** (`src/styles/tokens.css` + Tailwind theme) as the
-      single source so the whole system is swappable.
+- [x] **Design tokens file** (`src/styles/tokens.css` + Tailwind theme) as the
+      single source so the whole system is swappable. *(D0)*
 
 ---
 
@@ -93,20 +120,20 @@ Recommendation: **dual-mode by section**, not a global dark theme. Home and PDP 
 
 Chosen libraries and the rules around them.
 
-- [ ] **Lenis** — smooth/inertia scroll (the backbone of premium scroll feel).
-- [ ] **GSAP + ScrollTrigger** — pinned sections, scroll-scrubbed timelines,
-      reveals, parallax, horizontal scroll galleries. (Core GSAP is free; avoid
-      paid plugins or replace SplitText with a small custom splitter.)
+- [x] **Lenis** — smooth/inertia scroll (the backbone of premium scroll feel). *(D0)*
+- [x] **GSAP + ScrollTrigger** — pinned sections, scroll-scrubbed timelines,
+      reveals, parallax, horizontal scroll galleries. Registered + `useGsapScope`
+      helper shipped. *(D0)*
 - [ ] **react-three-fiber + drei + three** — the 3D leather bag: load a `.glb`,
       studio lighting/env map, scroll-scrub rotation, drag-to-rotate on PDP,
       live colour/material swatch swap.
-- [ ] **Framer Motion** — component-level transitions, layout animations, the
-      cart/drawer and modal choreography, list staggers.
+- [~] **Framer Motion** — installed; to wire for cart/drawer & modal
+      choreography, layout animations, list staggers. *(D2)*
 - [ ] **View Transitions API** (where supported) — cinematic page-to-page and
       product-image morphs (card → PDP hero shared-element).
 - [ ] **Guardrails (mandatory):**
-  - [ ] Honor `prefers-reduced-motion` everywhere — provide static fallbacks for every scroll/3D effect.
-  - [ ] Lazy-load Three.js + heavy scenes (dynamic import, only on routes that use them); never block first paint.
+  - [x] Honor `prefers-reduced-motion` everywhere — static fallbacks for every scroll/3D effect. *(D0: Lenis + useGsapScope gated)*
+  - [x] Lazy-load heavy motion (dynamic import); never block first paint. *(D0: GSAP/Lenis async chunks; Three.js to follow same pattern)*
   - [ ] Performance budget: LCP < 2.5s, keep main bundle lean (code-split 3D), 60fps on a mid-tier phone.
   - [ ] Pause off-screen canvases; cap DPR; use compressed `.glb` (Draco/meshopt) + KTX2 textures.
   - [ ] Full keyboard nav + focus management retained through all animated UI.
