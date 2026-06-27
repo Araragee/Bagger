@@ -17,6 +17,30 @@ redesign phases.
 
 ---
 
+## ⏳ BLOCKED — NEEDS YOU (assets & backend)
+
+> These are the only things the demo **can't** do self-contained — they need
+> your accounts, keys, or source files. The code is structured so each drops in
+> without a rewrite. _(Claude will keep reminding you about this list.)_
+
+**Real assets** (unlocks the visual ceiling — see [`docs/ASSETS.md`](./docs/ASSETS.md))
+- [ ] Product **photography** (multi-angle, macro, lifestyle) per SKU
+- [ ] **3D `.glb` models** for hero/PDP (replace the procedural bag in `src/three/BagModel.tsx`)
+- [ ] Brand assets: real logo/wordmark, favicon, OG share image
+
+**Backend** (target: **CockroachDB + Render**; swap point is `src/lib/api.ts`)
+- [ ] CockroachDB instance + schema (products, variants, inventory, orders, users)
+- [ ] Server/API layer on Render; reimplement `api.products/orders/auth` against it
+- [ ] **Stripe** keys → real payments (replace the simulated auth in `api.orders.create`)
+- [ ] **Auth** provider (or Cockroach-backed) → replace the local user registry
+- [ ] **Email** provider (Resend/Postmark) → order confirmations
+- [ ] Decide **SSR framework** (Next.js / Remix on Render) for true server-rendered SEO
+
+**What I need from you to start:** the relevant keys/connection strings (Cockroach
+URL, Stripe, email), and any real product images/models you have.
+
+---
+
 ## ✅ Done in this demo
 
 **Storefront & design**

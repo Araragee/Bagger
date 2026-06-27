@@ -127,7 +127,7 @@ export default function Shop() {
         <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-12">
           {list.map((p, i) => (
             <Reveal key={p.id} delay={(i % 4) * 60} className={editorialSpan(i)}>
-              <ProductCard product={p} />
+              <ProductCard product={p} morph />
             </Reveal>
           ))}
         </div>

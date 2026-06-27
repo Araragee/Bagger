@@ -85,11 +85,18 @@ hardening pass.
   route-level `Suspense` loading state.
 - ✅ **Signature micro-interaction**: magnetic CTAs (`useMagnetic` / `<Magnetic>`),
   pointer-only + reduced-motion safe.
+- ✅ **Card→PDP shared-element morph** — View Transitions API, driven manually
+  (`useMorphNavigate`) to work with `<BrowserRouter>`; scoped to the Shop grid
+  to avoid duplicate `view-transition-name`; PDP is eager so the morph never
+  captures a Suspense fallback. Falls back to normal nav when unsupported.
+- ✅ **Custom cursor** — dot + lagging ring, `mix-blend-difference` so it reads
+  on light *and* dark panels, grows over interactive targets; pointer-only +
+  reduced-motion safe (`CustomCursor`).
 - ✅ **Content/account polish**: fluid type, reveals, consistent hairlines.
 
-**Remaining (D3 tail):** card→PDP shared-element morph (View Transitions), a
-custom cursor, real assets, and an SSR migration (Next/Remix) for true
-server-rendered meta — see infra note.
+**Remaining (D3 tail):** real assets, and an SSR migration (Next/Remix) for true
+server-rendered meta — see infra note. The redesign itself is feature-complete
+for a self-contained demo.
 
 ---
 

@@ -122,7 +122,10 @@ export default function ProductPage() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Gallery */}
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="aspect-square w-full overflow-hidden rounded-[2rem] bg-gradient-to-b from-bone-200 to-bone">
+          <div
+            style={{ viewTransitionName: 'product-hero' }}
+            className="aspect-square w-full overflow-hidden rounded-[2rem] bg-gradient-to-b from-bone-200 to-bone"
+          >
             <Product3DViewer product={product} colorHex={colorHex(product, color)} />
           </div>
           <div className="mt-3 grid grid-cols-4 gap-3">

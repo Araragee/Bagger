@@ -8,12 +8,15 @@ import CartDrawer from './components/CartDrawer'
 import ScrollToTop from './components/ScrollToTop'
 import SmoothScroll from './components/SmoothScroll'
 import Toaster from './components/Toaster'
+import CustomCursor from './components/CustomCursor'
 import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home' // eager: most common entry / LCP
+// Eager so the card→PDP view-transition morph lands on the real hero, not a
+// Suspense fallback (a lazy PDP would suspend inside startViewTransition).
+import ProductPage from './pages/Product'
 
 // Secondary routes are code-split so they don't weigh down first paint
 const Shop = lazy(() => import('./pages/Shop'))
-const ProductPage = lazy(() => import('./pages/Product'))
 const Checkout = lazy(() => import('./pages/Checkout'))
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'))
 const Account = lazy(() => import('./pages/Account'))
@@ -49,7 +52,13 @@ export default function App() {
           <ErrorBoundary>
             <m.div
               key={location.pathname}
-              initial={reduced ? false : { opacity: 0, y: 10 }}
+              // Skip the fade on PDPs so the card→PDP view-transition morph
+              // lands on a fully-opaque hero rather than fighting the fade-in.
+              initial={
+                reduced || location.pathname.startsWith('/product/')
+                  ? false
+                  : { opacity: 0, y: 10 }
+              }
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -72,6 +81,7 @@ export default function App() {
         <Footer />
         <CartDrawer />
         <Toaster />
+        <CustomCursor />
       </div>
     </LazyMotion>
   )

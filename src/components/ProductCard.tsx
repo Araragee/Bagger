@@ -8,6 +8,7 @@ import {
 import ProductArt from './ProductArt'
 import { useCart } from '../store/cart'
 import { useToast } from '../store/toast'
+import { useMorphNavigate } from '../lib/useMorphNavigate'
 
 const badgeStyle: Record<string, string> = {
   New: 'bg-moss text-cream',
@@ -15,9 +16,20 @@ const badgeStyle: Record<string, string> = {
   'Last few': 'bg-clay text-cream',
 }
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  morph = false,
+}: {
+  product: Product
+  /** Opt into the shared-element morph into the PDP. Only enable where the
+   *  product appears once on the page (e.g. the Shop grid) to avoid duplicate
+   *  view-transition-name conflicts. */
+  morph?: boolean
+}) {
   const add = useCart((s) => s.add)
   const pushToast = useToast((s) => s.push)
+  const morphNav = useMorphNavigate()
+  const to = `/product/${product.slug}`
   const stock = productStock(product)
   const soldOut = stock === 0
   const lowStock = !soldOut && stock <= 5
@@ -35,7 +47,15 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group relative flex flex-col">
       <Link
-        to={`/product/${product.slug}`}
+        to={to}
+        onClick={
+          morph
+            ? (e) => {
+                e.preventDefault()
+                morphNav(to, e.currentTarget as HTMLElement)
+              }
+            : undefined
+        }
         className="relative block overflow-hidden rounded-2xl bg-bone-200"
       >
         {product.badge && !soldOut && (
@@ -68,7 +88,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="mt-4 flex items-start justify-between gap-3">
         <div>
           <h3 className="font-display text-lg leading-tight">
-            <Link to={`/product/${product.slug}`} className="link-underline">
+            <Link to={to} className="link-underline">
               {product.name}
             </Link>
           </h3>

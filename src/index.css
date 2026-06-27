@@ -38,6 +38,45 @@
     outline-offset: 3px;
     border-radius: 2px;
   }
+
+  /* ── Custom cursor: hide native pointer when active (keep it on text fields) ── */
+  html.cursor-custom,
+  html.cursor-custom a,
+  html.cursor-custom button {
+    cursor: none;
+  }
+  html.cursor-custom input,
+  html.cursor-custom textarea,
+  html.cursor-custom select {
+    cursor: auto;
+  }
+  .cursor-ring.is-hover {
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-left: -1.625rem;
+    margin-top: -1.625rem;
+    background-color: rgb(246 241 231 / 0.12);
+  }
+
+  /* ── View Transitions: tune the shared-element morph & default crossfade ── */
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.4s;
+    }
+    ::view-transition-group(product-hero) {
+      animation-duration: 0.55s;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+  /* Respect reduced motion: no view-transition animation at all */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
 }
 
 @layer components {
