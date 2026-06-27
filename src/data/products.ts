@@ -242,3 +242,51 @@ export function getProduct(slug: string) {
 export function formatPrice(cents: number) {
   return `$${cents.toFixed(0)}`
 }
+
+/* ─────────────────────────────────────────────────────────────
+ * Inventory
+ *
+ * Per-variant stock lives here in the data layer rather than being
+ * hand-keyed onto every colour. A small override map drives the
+ * interesting demo states (low stock, sold out); everything else
+ * defaults to a healthy count.
+ * ──────────────────────────────────────────────────────────── */
+
+export type StockState = 'in' | 'low' | 'out'
+
+// `${productId}:${colorName}` → units on hand
+const INVENTORY: Record<string, number> = {
+  // Overnight Weekender — the "Last few" hero of scarcity
+  'p4:Whiskey': 3,
+  'p4:Ink': 2,
+  // Atlas Backpack — one colourway sold out, one healthy
+  'p8:Whiskey': 0,
+  'p8:Ink': 9,
+  // Market Tote Mini — running low on olive
+  'p6:Olive': 4,
+}
+
+const DEFAULT_STOCK = 12
+
+export function variantStock(productId: string, color: string): number {
+  const key = `${productId}:${color}`
+  return key in INVENTORY ? INVENTORY[key] : DEFAULT_STOCK
+}
+
+export function stockStateOf(units: number): StockState {
+  if (units <= 0) return 'out'
+  if (units <= 5) return 'low'
+  return 'in'
+}
+
+/** A product is sold out only when every colourway is out. */
+export function productStock(product: Product): number {
+  return product.colors.reduce((n, c) => n + variantStock(product.id, c.name), 0)
+}
+
+export function firstAvailableColor(product: Product): ProductColor | undefined {
+  return (
+    product.colors.find((c) => variantStock(product.id, c.name) > 0) ??
+    product.colors[0]
+  )
+}

@@ -11,54 +11,67 @@ real e-commerce site · **P2** = nice-to-have / growth.
 
 ## ✅ Done in this demo
 
+**Storefront & design**
 - [x] Project scaffold — Vite + React + TS + Tailwind, typed build passing
 - [x] Distinctive design system (palette, type, grain, motion) — not a generic template
 - [x] Responsive layout across mobile / tablet / desktop
 - [x] Home page (hero, category strip, featured grid, brand editorial, shop teaser)
-- [x] Shop/collection page with category filter (URL-synced) + sorting
+- [x] Shop/collection page with category filter (URL-synced) + sorting + loading skeletons
 - [x] Product detail page (gallery, colour picker, accordions, related products)
 - [x] Cart drawer with quantity controls, persistence, free-shipping meter
-- [x] Checkout form (contact/shipping/payment) + order confirmation state
-- [x] About / brand story page
-- [x] 404 page
-- [x] Marquee announcement bar, footer with newsletter capture (UI only)
+- [x] About / brand story page · 404 page · marquee bar
 - [x] Generative SVG product artwork (no external image hosting needed)
 - [x] SPA deploy config (Vercel + Netlify rewrites)
 
+**P0 behaviours (self-contained architecture — see `src/lib/api.ts`)**
+- [x] **Swappable data/service layer** (`lib/db.ts` + `lib/api.ts`) — one seam to
+      replace with Supabase/Stripe; async API with simulated latency + loading states
+- [x] **Inventory & stock states** — per-variant stock, low-stock / sold-out UI,
+      add-to-cart clamped to stock, sold-out colourways disabled
+- [x] **Authentication** — register / sign in / sign out, session persistence
+- [x] **Account dashboard** — order history + saved addresses
+- [x] **Guest checkout** preserved, with prompt to sign in
+- [x] **Order creation & persistence** — order numbers, retrievable order pages
+- [x] **Checkout validation** — field-level errors, card/expiry/CVC formatting
+- [x] **Simulated payment** — success + declined-card path (ends in 0002)
+- [x] **Promo codes, tax & shipping quote** — WORNIN10 / LEATHER20 / FREESHIP, 8.25% tax
+- [x] **Order confirmation page** with full receipt + delivery estimate
+- [x] Toast notifications, content/help pages (Shipping, Returns, Care, FAQ,
+      Contact, Privacy, Terms) wired into the footer, per-route document titles
+
 ---
 
-## 🔴 P0 — Make it a real store
+## 🔴 P0 — Remaining: swap the local layer for real services
+
+> The full P0 *behaviour* now ships, backed by a local persistence layer
+> (`src/lib/api.ts`). What remains is replacing that single seam with real
+> cloud services — the calling code (stores, pages) won't change.
 
 ### Backend & data
-- [ ] **Replace mock catalogue with a real data source.** Move `src/data/products.ts`
-      behind an API (Supabase/Postgres, or a headless commerce backend like
-      Medusa/Shopify Storefront API). Define schema: products, variants, inventory,
-      prices, media.
+- [ ] **Move the catalogue + inventory behind a real API** (Supabase/Postgres, or
+      a headless backend like Medusa/Shopify Storefront API). Reimplement
+      `api.products.*` and the `INVENTORY` map against it.
 - [ ] **Real product photography / media.** The generative SVG is a placeholder;
       swap for a CDN-backed image gallery (multiple angles, zoom, lifestyle shots).
-- [ ] **Inventory & stock state.** Real stock counts, "sold out" / "back-order"
-      states, disable add-to-cart when unavailable.
-- [ ] **Server-side cart / session.** Cart currently lives only in `localStorage`;
-      persist server-side so it survives devices and feeds analytics.
+- [ ] **Server-side cart / session.** Cart lives in `localStorage`; persist it
+      server-side so it survives devices and feeds analytics.
 
 ### Payments & checkout
-- [ ] **Real payment processing** — Stripe (Checkout or Payment Elements) /
-      PayPal / Apple Pay / Google Pay. Currently the checkout is simulated.
-- [ ] **Tax calculation** (Stripe Tax / TaxJar) — currently flat/none.
-- [ ] **Shipping rates & methods** — real carrier rates, delivery estimates,
-      address validation. Currently a flat $12 / free-over-$150 rule.
-- [ ] **Order creation & persistence** — write orders to the DB, generate order
-      numbers, handle idempotency.
+- [ ] **Real payment processing** — replace the simulated authorisation in
+      `api.orders.create` with Stripe (Payment Elements) / PayPal / Apple Pay.
+- [ ] **Real tax & shipping** — swap the flat 8.25% / $12 rules for Stripe Tax /
+      TaxJar and live carrier rates + address validation.
 - [ ] **Transactional email** — order confirmation, shipping notification,
-      receipts (Resend/Postmark/SendGrid).
-- [ ] **Checkout validation & error states** — card errors, declined payments,
-      field-level validation beyond HTML `required`.
+      receipts (Resend/Postmark/SendGrid). Currently only the on-screen receipt.
+- [ ] **Order idempotency / webhooks** once a real PSP is wired in.
 
 ### Accounts
-- [ ] **Authentication** — sign up / log in / social auth / magic link.
-- [ ] **Account area** — order history, saved addresses, payment methods,
-      re-order, returns initiation.
-- [ ] **Guest checkout** path (keep it, but link to account creation post-purchase).
+- [ ] **Real auth** — replace the local user registry with Supabase Auth / Clerk
+      (social login, magic link, password reset, email verification).
+- [ ] **Secure password handling** — the demo uses a client-side hash; real auth
+      must hash server-side and never store credentials in the browser.
+- [ ] **Account extras** — payment methods, re-order, returns initiation from
+      order history.
 
 ---
 

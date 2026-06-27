@@ -41,6 +41,13 @@ export const StarIcon = ({ className = 'h-4 w-4' }: IconProps) => (
   </svg>
 )
 
+export const UserIcon = ({ className = 'h-5 w-5' }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+    <circle cx="12" cy="8" r="3.4" stroke="currentColor" strokeWidth="1.6" />
+    <path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+)
+
 export const MinusIcon = ({ className = 'h-4 w-4' }: IconProps) => (
   <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
     <path d="M5 12h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />

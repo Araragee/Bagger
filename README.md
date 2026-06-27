@@ -35,14 +35,43 @@ Deliberately *not* the generic white-grid Shopify template:
 | Route | Page |
 |-------|------|
 | `/` | Home — hero, category strip, featured grid, brand editorial, full-shop teaser |
-| `/shop` | Collection — category filter (URL-synced) + sorting |
-| `/product/:slug` | Product detail — gallery, colour picker, accordions, related products |
-| `/checkout` | Checkout — contact/shipping/payment form + order summary + confirmation |
+| `/shop` | Collection — category filter (URL-synced) + sorting + loading skeletons |
+| `/product/:slug` | Product detail — gallery, colour picker, stock states, accordions, related |
+| `/checkout` | Checkout — validated form, promo codes, tax/shipping quote, payment sim |
+| `/order/:id` | Order confirmation / receipt (persisted, re-openable) |
+| `/account` | Sign in / register, then dashboard with order history + saved addresses |
 | `/about` | Our Story — brand narrative, values, stats, CTA |
+| `/pages/:slug` | Help & policy content (shipping, returns, care, faq, contact, privacy, terms) |
 | `*` | 404 |
 
 The cart is a slide-in drawer available from any page, with quantity controls
-and a free-shipping progress meter.
+(clamped to stock) and a free-shipping progress meter.
+
+## Architecture — the data layer
+
+Everything that looks like a backend goes through one swappable seam:
+
+- **`src/lib/db.ts`** — a tiny `localStorage`-backed persistence layer (users,
+  sessions, orders) with simulated network latency.
+- **`src/lib/api.ts`** — the typed service API (`products`, `auth`, `checkout`,
+  `orders`). This is the *only* file you reimplement to go live against
+  Supabase / Stripe / your own API — pages and stores never change.
+
+Implemented end-to-end, all self-contained (no keys or external services):
+
+- **Auth** — register / sign in / sign out, session persistence, account dashboard
+- **Inventory** — per-variant stock, low-stock & sold-out states, add-to-cart clamping
+- **Orders** — creation, order numbers, persistence, confirmation/receipt, order history
+- **Checkout** — field validation, card formatting, promo codes, tax + shipping quote,
+  simulated payment with a declined-card path
+- **Guest checkout** preserved, with a prompt to sign in
+
+## Demo notes
+
+- **Accounts** are stored locally in your browser only — register any email.
+- **Promo codes:** `WORNIN10` (10% off), `LEATHER20` (20% off), `FREESHIP` (free shipping).
+- **Payment is simulated** — any card number succeeds; one **ending in `0002`** simulates a decline.
+- No real payment is processed and nothing ships.
 
 ## Getting started
 

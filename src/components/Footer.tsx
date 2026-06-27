@@ -17,18 +17,18 @@ const cols = [
     title: 'Company',
     links: [
       { label: 'Our story', to: '/about' },
-      { label: 'Repairs & care', to: '/about' },
-      { label: 'Journal', to: '/shop' },
-      { label: 'Careers', to: '/about' },
+      { label: 'Leather care', to: '/pages/care' },
+      { label: 'Your account', to: '/account' },
+      { label: 'Contact', to: '/pages/contact' },
     ],
   },
   {
     title: 'Help',
     links: [
-      { label: 'Shipping', to: '/about' },
-      { label: 'Returns', to: '/about' },
-      { label: 'Contact', to: '/about' },
-      { label: 'FAQ', to: '/about' },
+      { label: 'Shipping', to: '/pages/shipping' },
+      { label: 'Returns & repairs', to: '/pages/returns' },
+      { label: 'FAQ', to: '/pages/faq' },
+      { label: 'Contact', to: '/pages/contact' },
     ],
   },
 ]
@@ -95,9 +95,9 @@ export default function Footer() {
         <div className="container-wide flex flex-col gap-3 py-6 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Bagger. A demo storefront.</p>
           <div className="flex gap-5">
-            <a href="#" className="link-underline">Privacy</a>
-            <a href="#" className="link-underline">Terms</a>
-            <a href="#" className="link-underline">Instagram</a>
+            <Link to="/pages/privacy" className="link-underline">Privacy</Link>
+            <Link to="/pages/terms" className="link-underline">Terms</Link>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="link-underline">Instagram</a>
           </div>
         </div>
       </div>

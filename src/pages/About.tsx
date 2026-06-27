@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import ProductArt from '../components/ProductArt'
 import Reveal from '../components/Reveal'
+import { useTitle } from '../lib/useTitle'
 
 const values = [
   {
@@ -19,6 +20,7 @@ const values = [
 ]
 
 export default function About() {
+  useTitle('Our story')
   return (
     <div>
       {/* Hero */}

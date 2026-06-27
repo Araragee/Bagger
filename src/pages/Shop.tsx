@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { products, categories } from '../data/products'
+import { categories, type Product } from '../data/products'
+import { api } from '../lib/api'
 import ProductCard from '../components/ProductCard'
 import Reveal from '../components/Reveal'
+import { useTitle } from '../lib/useTitle'
 
 type Sort = 'featured' | 'price-asc' | 'price-desc' | 'rating'
 
@@ -17,6 +19,19 @@ export default function Shop() {
   const [params, setParams] = useSearchParams()
   const active = (params.get('category') as (typeof categories)[number]) || 'All'
   const [sort, setSort] = useState<Sort>('featured')
+  const [all, setAll] = useState<Product[] | null>(null)
+
+  useTitle(active === 'All' ? 'Shop' : active)
+
+  // Fetch through the service layer so loading/error states are real
+  useEffect(() => {
+    let alive = true
+    setAll(null)
+    api.products.list().then((p) => alive && setAll(p))
+    return () => {
+      alive = false
+    }
+  }, [])
 
   const setCategory = (c: string) => {
     if (c === 'All') params.delete('category')
@@ -25,7 +40,8 @@ export default function Shop() {
   }
 
   const list = useMemo(() => {
-    let l = products.filter((p) => active === 'All' || p.category === active)
+    if (!all) return []
+    let l = all.filter((p) => active === 'All' || p.category === active)
     switch (sort) {
       case 'price-asc':
         l = [...l].sort((a, b) => a.price - b.price)
@@ -38,7 +54,7 @@ export default function Shop() {
         break
     }
     return l
-  }, [active, sort])
+  }, [all, active, sort])
 
   return (
     <div className="container-wide py-10">
@@ -86,9 +102,21 @@ export default function Shop() {
         </div>
       </div>
 
-      <p className="mt-6 text-sm text-ink-soft">{list.length} products</p>
+      <p className="mt-6 text-sm text-ink-soft">
+        {all === null ? 'Loading…' : `${list.length} products`}
+      </p>
 
-      {list.length === 0 ? (
+      {all === null ? (
+        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="animate-pulse">
+              <div className="aspect-square w-full rounded-2xl bg-bone-200" />
+              <div className="mt-4 h-4 w-2/3 rounded bg-bone-200" />
+              <div className="mt-2 h-3 w-1/2 rounded bg-bone-200" />
+            </div>
+          ))}
+        </div>
+      ) : list.length === 0 ? (
         <p className="py-24 text-center font-display text-2xl">Nothing here yet — check back soon.</p>
       ) : (
         <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-4">

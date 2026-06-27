@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo'
-import { BagIcon, MenuIcon, CloseIcon } from './Icons'
+import { BagIcon, MenuIcon, CloseIcon, UserIcon } from './Icons'
 import { useCart, useCartCount } from '../store/cart'
+import { useAuth } from '../store/auth'
 
 const nav = [
   { to: '/shop', label: 'Shop' },
@@ -16,6 +17,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const count = useCartCount()
   const openCart = useCart((s) => s.open)
+  const user = useAuth((s) => s.user)
   const location = useLocation()
 
   useEffect(() => {
@@ -68,17 +70,31 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          onClick={openCart}
-          className="relative flex items-center gap-2 rounded-full border border-ink/20 px-3.5 py-2 transition-colors hover:border-ink"
-          aria-label={`Open cart, ${count} items`}
-        >
-          <BagIcon className="h-4.5 w-4.5" />
-          <span className="font-sans text-sm tabular-nums">{count}</span>
-          {count > 0 && (
-            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-clay" />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          <NavLink
+            to="/account"
+            aria-label={user ? 'Your account' : 'Sign in'}
+            className="flex items-center gap-2 rounded-full border border-ink/20 px-3.5 py-2 transition-colors hover:border-ink"
+          >
+            <UserIcon className="h-4.5 w-4.5" />
+            {user && (
+              <span className="hidden font-sans text-sm sm:inline">
+                {user.name.split(' ')[0]}
+              </span>
+            )}
+          </NavLink>
+          <button
+            onClick={openCart}
+            className="relative flex items-center gap-2 rounded-full border border-ink/20 px-3.5 py-2 transition-colors hover:border-ink"
+            aria-label={`Open cart, ${count} items`}
+          >
+            <BagIcon className="h-4.5 w-4.5" />
+            <span className="font-sans text-sm tabular-nums">{count}</span>
+            {count > 0 && (
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-clay" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu sheet */}
@@ -105,6 +121,9 @@ export default function Header() {
                   {n.label}
                 </Link>
               ))}
+              <Link to="/account" className="border-b border-ink/10 py-4 font-display text-2xl">
+                {user ? 'Your account' : 'Sign in'}
+              </Link>
             </nav>
             <p className="mt-auto text-sm text-ink-soft">
               Free shipping over $150 · Lifetime repairs

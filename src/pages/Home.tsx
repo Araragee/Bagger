@@ -4,6 +4,7 @@ import ProductCard from '../components/ProductCard'
 import ProductArt from '../components/ProductArt'
 import Reveal from '../components/Reveal'
 import { ArrowIcon, StarIcon } from '../components/Icons'
+import { useTitle } from '../lib/useTitle'
 
 const hero = products[0]
 const editorial = products[3]
@@ -18,6 +19,7 @@ const categories = [
 ]
 
 export default function Home() {
+  useTitle('')
   return (
     <div>
       {/* ── Hero ─────────────────────────────────────────── */}
