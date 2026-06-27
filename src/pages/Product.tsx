@@ -9,6 +9,7 @@ import {
   firstAvailableColor,
 } from '../data/products'
 import ProductArt from '../components/ProductArt'
+import Product3DViewer from '../components/Product3DViewer'
 import ProductCard from '../components/ProductCard'
 import Reveal from '../components/Reveal'
 import { StarIcon, ArrowIcon } from '../components/Icons'
@@ -88,12 +89,8 @@ export default function ProductPage() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Gallery */}
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="overflow-hidden rounded-[2rem] bg-bone-200">
-            <ProductArt
-              product={{ ...product, art: { ...product.art, base: colorHex(product, color) } }}
-              className="aspect-square w-full"
-              variant="hero"
-            />
+          <div className="aspect-square w-full overflow-hidden rounded-[2rem] bg-gradient-to-b from-bone-200 to-bone">
+            <Product3DViewer product={product} colorHex={colorHex(product, color)} />
           </div>
           <div className="mt-3 grid grid-cols-4 gap-3">
             {product.colors.map((c) => {
@@ -230,6 +227,42 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
+
+      {/* Bento spec story (Xiaomi-led) */}
+      <section className="mt-20 sm:mt-28">
+        <span className="eyebrow">Engineered to last</span>
+        <h2 className="mt-2 max-w-xl font-display text-fluid-2xl font-light">
+          Every millimetre considered, every gram earned.
+        </h2>
+        <div className="mt-8 grid auto-rows-[minmax(9rem,auto)] grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {/* Material — wide hero tile */}
+          <div className="col-span-2 row-span-2 flex flex-col justify-between rounded-3xl bg-ink p-6 text-cream sm:p-8">
+            <span className="eyebrow text-cream/50">Material</span>
+            <div>
+              <p className="font-display text-fluid-xl leading-tight">{product.material}</p>
+              <p className="mt-2 max-w-xs text-sm text-cream/60">
+                One hide, full-grain, ageing into a patina that’s yours alone.
+              </p>
+            </div>
+          </div>
+          {/* Rating big number */}
+          <div className="flex flex-col justify-between rounded-3xl bg-clay p-6 text-cream">
+            <span className="eyebrow text-cream/60">Owner rating</span>
+            <p className="font-display text-5xl">{product.rating}<span className="text-2xl">/5</span></p>
+          </div>
+          {/* Warranty */}
+          <div className="flex flex-col justify-between rounded-3xl bg-bone-200 p-6">
+            <span className="eyebrow">Repairs</span>
+            <p className="font-display text-4xl">Lifetime</p>
+          </div>
+          {/* Detail tiles from product.details */}
+          {product.details.slice(0, 2).map((d) => (
+            <div key={d} className="flex items-end rounded-3xl border border-ink/10 p-6">
+              <p className="text-sm leading-snug text-ink-soft">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Related */}
       <section className="mt-24">

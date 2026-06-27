@@ -40,6 +40,33 @@ PDP viewer.
 
 ---
 
+## ⚙️ D1–D2 — SHIPPED
+
+Signature moments are live (all verified rendering headless, no console errors):
+
+- ✅ **Scroll-scrubbed 3D hero** — procedural leather bag in react-three-fiber
+  (`src/three/BagModel.tsx` + `HeroScene.tsx`), studio lighting, contact shadow,
+  in-scene environment (no HDRI fetch), rotates with scroll. *(D1)*
+- ✅ **PDP interactive 3D viewer** — drag-to-rotate (`PresentationControls`) with
+  **live colour/material swap** driven by the colour picker. *(D1)*
+- ✅ **Bento spec grid** on PDP (Xiaomi-led). *(D1)*
+- ✅ **Pinned craft chapter** — dark `<Panel>`, GSAP ScrollTrigger pin + scrubbed
+  step crossfade, accessible stacked fallback under reduced-motion. *(D1)*
+- ✅ **Editorial PLP grid** — 12-col magazine rhythm (5/7, 4/4/4). *(D2)*
+- ✅ **Lookbook band** — asymmetric horizontal-scroll campaign frames. *(D2)*
+- ✅ **Framer Motion** — animated cart drawer (enter/exit) + per-route page
+  transitions, via `LazyMotion`/`m` to keep the bundle lean. *(D2)*
+- ✅ **Graceful fallbacks** — every 3D surface falls back to the SVG art when
+  WebGL is unavailable or reduced-motion is set.
+- ✅ **Perf**: 3D (three/drei) is a lazy ~243 KB-gzip chunk loaded only on pages
+  with the bag; GSAP/Lenis async; main bundle ~108 KB gzip.
+
+**Still to do (D2 tail / D3):** real assets (photography + `.glb`), card→PDP
+shared-element morph, magnetic cursor, account/content polish, full a11y + perf
+hardening pass.
+
+---
+
 ## 1. What to steal from each brand
 
 A teardown of each reference's design language, and the specific move to take.

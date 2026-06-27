@@ -15,6 +15,10 @@ const sorts: { value: Sort; label: string }[] = [
   { value: 'rating', label: 'Top rated' },
 ]
 
+// Repeating 12-col rhythm: rows of (5+7) then (4+4+4) for a magazine feel
+const SPANS = ['lg:col-span-5', 'lg:col-span-7', 'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4']
+const editorialSpan = (i: number) => SPANS[i % SPANS.length]
+
 export default function Shop() {
   const [params, setParams] = useSearchParams()
   const active = (params.get('category') as (typeof categories)[number]) || 'All'
@@ -119,9 +123,10 @@ export default function Shop() {
       ) : list.length === 0 ? (
         <p className="py-24 text-center font-display text-2xl">Nothing here yet — check back soon.</p>
       ) : (
-        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+        // Editorial rhythm: 12-col grid with varied tile widths on desktop
+        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-12">
           {list.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 4) * 60}>
+            <Reveal key={p.id} delay={(i % 4) * 60} className={editorialSpan(i)}>
               <ProductCard product={p} />
             </Reveal>
           ))}

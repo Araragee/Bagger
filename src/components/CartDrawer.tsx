@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
 import { useCart, useCartTotal, lineProduct } from '../store/cart'
 import { formatPrice } from '../data/products'
 import ProductArt from './ProductArt'
@@ -11,6 +12,7 @@ const FREE_SHIP = 150
 export default function CartDrawer() {
   const { isOpen, close, lines, setQty, remove } = useCart()
   const total = useCartTotal()
+  const reduced = useReducedMotion()
   const remaining = Math.max(0, FREE_SHIP - total)
   const progress = Math.min(100, (total / FREE_SHIP) * 100)
 
@@ -25,12 +27,25 @@ export default function CartDrawer() {
     }
   }, [isOpen])
 
-  if (!isOpen) return null
-
   return (
-    <div className="fixed inset-0 z-50">
-      <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm" onClick={close} />
-      <aside className="absolute inset-y-0 right-0 flex w-full max-w-md animate-slide-in flex-col bg-cream shadow-2xl">
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50">
+          <m.div
+            className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+            onClick={close}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+          <m.aside
+            className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-cream shadow-2xl"
+            initial={reduced ? { opacity: 0 } : { x: '100%' }}
+            animate={reduced ? { opacity: 1 } : { x: 0 }}
+            exit={reduced ? { opacity: 0 } : { x: '100%' }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
         <div className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
           <h2 className="font-display text-xl">Your bag</h2>
           <button aria-label="Close cart" onClick={close}>
@@ -139,7 +154,9 @@ export default function CartDrawer() {
             </div>
           </>
         )}
-      </aside>
-    </div>
+          </m.aside>
+        </div>
+      )}
+    </AnimatePresence>
   )
 }

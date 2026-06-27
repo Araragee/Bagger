@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import ProductCard from '../components/ProductCard'
 import ProductArt from '../components/ProductArt'
+import { lazy, Suspense } from 'react'
+import Hero3D from '../components/Hero3D'
+import Lookbook from '../components/Lookbook'
 import Reveal from '../components/Reveal'
+
+// Lazy so GSAP (used by the pinned sequence) stays out of the initial bundle
+const CraftChapter = lazy(() => import('../components/CraftChapter'))
 import { ArrowIcon, StarIcon } from '../components/Icons'
 import { useTitle } from '../lib/useTitle'
 
@@ -61,8 +67,8 @@ export default function Home() {
         </div>
 
         <div className="relative animate-fade-up [animation-delay:120ms]">
-          <div className="overflow-hidden rounded-[2rem] bg-bone-200">
-            <ProductArt product={hero} className="aspect-[4/5] w-full" variant="hero" />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-gradient-to-b from-bone-200 to-bone">
+            <Hero3D className="absolute inset-0 h-full w-full" />
           </div>
           {/* floating product chip */}
           <Link
@@ -123,6 +129,14 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ── Craft chapter (pinned, scroll-driven, dark) ──── */}
+      <Suspense fallback={<div className="min-h-[60vh]" />}>
+        <CraftChapter />
+      </Suspense>
+
+      {/* ── Lookbook (editorial horizontal scroll) ───────── */}
+      <Lookbook />
 
       {/* ── Editorial split ──────────────────────────────── */}
       <section className="bg-ink py-20 text-cream">
