@@ -5,7 +5,15 @@ turning it into a production storefront. Checked items (`[x]`) ship in the
 current demo; unchecked items are the work remaining.
 
 Legend: **P0** = needed for a believable live store · **P1** = expected of a
-real e-commerce site · **P2** = nice-to-have / growth.
+real e-commerce site · **P2** = nice-to-have / growth · **D0–D3** = high-end
+redesign phases.
+
+> 🎨 **The redesign is the current main goal.** Full brief, brand teardown
+> (Apple / Xiaomi / Rolex / Gucci), motion + 3D stack, and the phased D0–D3
+> checklist live in **[`REDESIGN_PLAN.md`](./REDESIGN_PLAN.md)**.
+>
+> 🛠 **Target infra (when wiring the backend):** CockroachDB (Postgres-wire) +
+> Render hosting. The `src/lib/api.ts` seam is the single swap point.
 
 ---
 
@@ -48,9 +56,12 @@ real e-commerce site · **P2** = nice-to-have / growth.
 > cloud services — the calling code (stores, pages) won't change.
 
 ### Backend & data
-- [ ] **Move the catalogue + inventory behind a real API** (Supabase/Postgres, or
-      a headless backend like Medusa/Shopify Storefront API). Reimplement
-      `api.products.*` and the `INVENTORY` map against it.
+- [ ] **Move the catalogue + inventory behind a real API** — target stack is
+      **CockroachDB** (Postgres-wire) behind a thin server/API layer on
+      **Render**. Reimplement `api.products.*` and the `INVENTORY` map against it;
+      the rest of the app is untouched.
+- [ ] **Plan SSR framework (Next.js / Remix on Render)** so the motion-heavy
+      redesign pages still render server-side for SEO and fast first paint.
 - [ ] **Real product photography / media.** The generative SVG is a placeholder;
       swap for a CDN-backed image gallery (multiple angles, zoom, lifestyle shots).
 - [ ] **Server-side cart / session.** Cart lives in `localStorage`; persist it
