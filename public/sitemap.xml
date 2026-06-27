@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bagger.example/</loc></url>
+  <url><loc>https://bagger.example/shop</loc></url>
+  <url><loc>https://bagger.example/about</loc></url>
+  <url><loc>https://bagger.example/pages/shipping</loc></url>
+  <url><loc>https://bagger.example/pages/returns</loc></url>
+  <url><loc>https://bagger.example/pages/care</loc></url>
+  <url><loc>https://bagger.example/pages/faq</loc></url>
+  <url><loc>https://bagger.example/pages/contact</loc></url>
+  <url><loc>https://bagger.example/pages/privacy</loc></url>
+  <url><loc>https://bagger.example/pages/terms</loc></url>
+  <url><loc>https://bagger.example/product/the-workhorse-tote</loc></url>
+  <url><loc>https://bagger.example/product/field-backpack</loc></url>
+  <url><loc>https://bagger.example/product/sidekick-crossbody</loc></url>
+  <url><loc>https://bagger.example/product/overnight-weekender</loc></url>
+  <url><loc>https://bagger.example/product/everyday-bifold</loc></url>
+  <url><loc>https://bagger.example/product/market-tote-mini</loc></url>
+  <url><loc>https://bagger.example/product/commuter-sling</loc></url>
+  <url><loc>https://bagger.example/product/atlas-backpack</loc></url>
+</urlset>

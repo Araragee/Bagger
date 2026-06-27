@@ -67,6 +67,32 @@ hardening pass.
 
 ---
 
+## ⚙️ D3 — polish & hardening — SHIPPED
+
+- ✅ **Accessibility**: skip-to-content link, focus-trap + ESC + focus-restore on
+  cart drawer & mobile menu (`useFocusTrap`), `role="dialog"`/`aria-modal`,
+  global `:focus-visible` ring, `aria-live` toaster.
+  - 🐞 Fixed a real regression: the Framer cart drawer couldn't close at all
+    (AnimatePresence needs a *keyed motion* direct child) — now X + ESC + backdrop
+    all close it.
+- ✅ **SEO**: per-route head manager (`lib/seo.ts`) — title, description, Open
+  Graph, canonical; **JSON-LD** structured data (Product on PDP, Organization on
+  home); `robots.txt` + generated `sitemap.xml` (`scripts/gen-sitemap.mjs`,
+  wired into `build`).
+- ✅ **Performance**: route-based code-splitting — secondary pages are 3–9 KB
+  chunks; main bundle ~100 KB gzip; 3D/GSAP/Lenis all async.
+- ✅ **Resilience**: `ErrorBoundary` around routes with a friendly fallback;
+  route-level `Suspense` loading state.
+- ✅ **Signature micro-interaction**: magnetic CTAs (`useMagnetic` / `<Magnetic>`),
+  pointer-only + reduced-motion safe.
+- ✅ **Content/account polish**: fluid type, reveals, consistent hairlines.
+
+**Remaining (D3 tail):** card→PDP shared-element morph (View Transitions), a
+custom cursor, real assets, and an SSR migration (Next/Remix) for true
+server-rendered meta — see infra note.
+
+---
+
 ## 1. What to steal from each brand
 
 A teardown of each reference's design language, and the specific move to take.

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
   getProduct,
@@ -7,6 +7,7 @@ import {
   variantStock,
   stockStateOf,
   firstAvailableColor,
+  productStock,
 } from '../data/products'
 import ProductArt from '../components/ProductArt'
 import Product3DViewer from '../components/Product3DViewer'
@@ -15,7 +16,7 @@ import Reveal from '../components/Reveal'
 import { StarIcon, ArrowIcon } from '../components/Icons'
 import { useCart } from '../store/cart'
 import { useToast } from '../store/toast'
-import { useTitle } from '../lib/useTitle'
+import { useSeo, useJsonLd } from '../lib/seo'
 import NotFound from './NotFound'
 
 export default function ProductPage() {
@@ -28,7 +29,39 @@ export default function ProductPage() {
   )
   const [openSection, setOpenSection] = useState<string | null>('details')
 
-  useTitle(product?.name ?? 'Not found')
+  useSeo({
+    title: product?.name ?? 'Not found',
+    description: product?.description,
+    type: 'product',
+  })
+
+  const jsonLd = useMemo(() => {
+    if (!product) return null
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product.name,
+      description: product.description,
+      category: product.category,
+      material: product.material,
+      brand: { '@type': 'Brand', name: 'Bagger' },
+      offers: {
+        '@type': 'Offer',
+        price: product.price,
+        priceCurrency: 'USD',
+        availability:
+          productStock(product) > 0
+            ? 'https://schema.org/InStock'
+            : 'https://schema.org/OutOfStock',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: product.rating,
+        reviewCount: product.reviews,
+      },
+    }
+  }, [product])
+  useJsonLd(jsonLd)
 
   if (!product) return <NotFound />
 

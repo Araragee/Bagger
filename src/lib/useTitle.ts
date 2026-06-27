@@ -1,12 +1,9 @@
-import { useEffect } from 'react'
+import { useSeo } from './seo'
 
-/** Set the document title per page (SPA has no per-route <head> otherwise). */
+/**
+ * Back-compat shim: pages that only need a title still call useTitle, but now
+ * get full SEO head management (description, OG, canonical) via useSeo.
+ */
 export function useTitle(title: string) {
-  useEffect(() => {
-    const prev = document.title
-    document.title = title ? `${title} · Bagger` : 'Bagger — Everyday carry, built to be worn in'
-    return () => {
-      document.title = prev
-    }
-  }, [title])
+  useSeo({ title })
 }

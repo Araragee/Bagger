@@ -5,12 +5,14 @@ import ProductArt from '../components/ProductArt'
 import { lazy, Suspense } from 'react'
 import Hero3D from '../components/Hero3D'
 import Lookbook from '../components/Lookbook'
+import Magnetic from '../components/Magnetic'
 import Reveal from '../components/Reveal'
 
 // Lazy so GSAP (used by the pinned sequence) stays out of the initial bundle
 const CraftChapter = lazy(() => import('../components/CraftChapter'))
 import { ArrowIcon, StarIcon } from '../components/Icons'
 import { useTitle } from '../lib/useTitle'
+import { useJsonLd } from '../lib/seo'
 
 const hero = products[0]
 const editorial = products[3]
@@ -26,6 +28,14 @@ const categories = [
 
 export default function Home() {
   useTitle('')
+  useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Bagger',
+    description:
+      'Characterful leather goods and everyday carry. Built to be worn in, not worn out.',
+    slogan: 'Built to be worn in, not worn out.',
+  })
   return (
     <div>
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -44,13 +54,17 @@ export default function Home() {
             get better — the kind you hand down, not throw out.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link to="/shop" className="btn-primary">
-              Shop the collection
-              <ArrowIcon />
-            </Link>
-            <Link to="/about" className="btn-ghost">
-              Our story
-            </Link>
+            <Magnetic strength={0.35}>
+              <Link to="/shop" className="btn-primary">
+                Shop the collection
+                <ArrowIcon />
+              </Link>
+            </Magnetic>
+            <Magnetic strength={0.3}>
+              <Link to="/about" className="btn-ghost">
+                Our story
+              </Link>
+            </Magnetic>
           </div>
 
           <div className="mt-10 flex items-center gap-6 text-sm text-ink-soft">

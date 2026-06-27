@@ -1,24 +1,25 @@
 import { useParams } from 'react-router-dom'
 import { contentPages } from '../data/pages'
-import { useTitle } from '../lib/useTitle'
+import { useSeo } from '../lib/seo'
+import Reveal from '../components/Reveal'
 import NotFound from './NotFound'
 
 export default function Content() {
   const { slug } = useParams()
   const page = slug ? contentPages[slug] : undefined
-  useTitle(page?.title ?? 'Not found')
+  useSeo({ title: page?.title ?? 'Not found', description: page?.intro, type: 'article' })
 
   if (!page) return <NotFound />
 
   return (
-    <div className="container-wide max-w-3xl py-12">
+    <div className="container-wide max-w-3xl py-[var(--section-y)]">
       <header className="border-b border-ink/10 pb-8">
         <span className="eyebrow">Help</span>
-        <h1 className="mt-2 font-display text-5xl font-light">{page.title}</h1>
-        <p className="mt-3 max-w-lg text-lg text-ink-soft">{page.intro}</p>
+        <h1 className="mt-2 font-display text-fluid-3xl font-light">{page.title}</h1>
+        <p className="mt-3 max-w-lg text-fluid-lg text-ink-soft">{page.intro}</p>
       </header>
 
-      <div className="prose-bagger mt-8 space-y-6">
+      <Reveal className="prose-bagger mt-8 space-y-6">
         {page.blocks.map((block, i) => {
           switch (block.type) {
             case 'h':
@@ -49,7 +50,7 @@ export default function Content() {
               )
           }
         })}
-      </div>
+      </Reveal>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { BagIcon, MenuIcon, CloseIcon, UserIcon } from './Icons'
 import { useCart, useCartCount } from '../store/cart'
 import { useAuth } from '../store/auth'
 import { getLenis } from '../lib/lenis'
+import { useFocusTrap } from '../lib/useFocusTrap'
 
 const nav = [
   { to: '/shop', label: 'Shop' },
@@ -20,6 +21,7 @@ export default function Header() {
   const openCart = useCart((s) => s.open)
   const user = useAuth((s) => s.user)
   const location = useLocation()
+  const menuRef = useFocusTrap<HTMLDivElement>(mobileOpen, () => setMobileOpen(false))
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -108,7 +110,13 @@ export default function Header() {
             className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute inset-y-0 left-0 flex w-[82%] max-w-sm animate-slide-in flex-col bg-cream p-6">
+          <div
+            ref={menuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            className="absolute inset-y-0 left-0 flex w-[82%] max-w-sm animate-slide-in flex-col bg-cream p-6"
+          >
             <div className="flex items-center justify-between">
               <Logo />
               <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
